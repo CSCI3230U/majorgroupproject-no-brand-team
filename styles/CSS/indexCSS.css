@@ -1,0 +1,9 @@
+body{
+ background-color: grey;   
+}
+.lightClass{
+    transform: rotate(-1deg);
+}
+.barColor{
+    background-color: red;
+}
