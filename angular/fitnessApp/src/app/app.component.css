@@ -4,6 +4,8 @@
 }
 #backgroundColor{
     background-color: #404040;
+    margin: 0;
+    padding: 0;
 }
 #navItemStyles{
     transform: rotate(-87deg);
@@ -19,4 +21,16 @@
     color: white; 
     font-size: 3em;
     font-family: 'Pacifico', cursive;
+}
+#MenuPosition{
+    position: relative;
+    left: .75%;
+}
+#HrStyles{
+    color: white;
+}
+#pieGraphDiv{
+    position: absolute;
+    right: 0;
+    top: 10px;
 }
