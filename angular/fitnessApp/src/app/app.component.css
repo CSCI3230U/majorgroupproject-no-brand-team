@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 #navbarStyles{
     background-color: #009933;
 }
@@ -12,8 +13,10 @@
 }
 #pageSelectStyles{
     color: white;
-    
+    font-family: 'Pacifico', cursive;
 }
 #oneOfMainHeaders{
-    color: white; size: 12em;
+    color: white; 
+    font-size: 3em;
+    font-family: 'Pacifico', cursive;
 }
