@@ -1,6 +1,19 @@
 #navbarStyles{
-
+    background-color: #009933;
 }
 #backgroundColor{
     background-color: #404040;
+}
+#navItemStyles{
+    transform: rotate(-87deg);
+}
+#menuStyles{
+    width: 10%;
+}
+#pageSelectStyles{
+    color: white;
+    
+}
+#oneOfMainHeaders{
+    color: white; size: 12em;
 }
