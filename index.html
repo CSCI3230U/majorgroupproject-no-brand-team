@@ -5,6 +5,8 @@
     <title>Fit</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="js/indexJS.js"></script>
+    <script src="js/chart/barChart.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <link rel="stylesheet" href="styles/CSS/indexCSS.css">
     <link rel="stylesheet" href="styles/CSS/normalize.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
@@ -57,7 +59,7 @@
         <hr/>
         <p class="menu-item-active-background-color">Pages</p>
         <hr/>
-        
+
         <ul  class="menu-list">
             <li><a style="color: white;">Page 1</a></li>
             <li><a style="color: white;">Page 2</a></li>
@@ -70,6 +72,8 @@
     <div align="center">
         <h3 style="color: white; size: 12em;">Fitness made better</h3>
         <img src="styles/images/pi.png" width="40%" >
+    </div>
+    <div id="chart">
     </div>
 </div>
 </body>
