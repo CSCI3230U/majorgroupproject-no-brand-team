@@ -9,6 +9,15 @@
 }
 #navItemStyles{
     transform: rotate(-87deg);
+    animation: blink normal 4s infinite ease-in-out;
+}
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 0;
+    }
 }
 #menuStyles{
     width: 10%;
@@ -32,5 +41,5 @@
 #pieGraphDiv{
     position: absolute;
     right: 0;
-    top: 10px;
+    top: 0px;
 }
