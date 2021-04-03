@@ -11,6 +11,15 @@
     transform: rotate(-87deg);
     animation: blink normal 4s infinite ease-in-out;
 }
+#navItemStyles2{
+    transform: rotate(-87deg);
+    animation: blink normal 2s infinite ease-in-out;
+}
+#navItemStyles3{
+    transform: rotate(-87deg);
+    animation: blink normal 1.9s infinite ease-in-out;
+}
+/* I got the syntax for the blink animation from here: "https://www.codehaven.co.uk/css/blink-image-by-css/" than made my own version for the project*/
 @keyframes blink{
     0%{
         opacity: 1;
@@ -19,6 +28,7 @@
         opacity: 0;
     }
 }
+
 #menuStyles{
     width: 10%;
 }
@@ -40,6 +50,39 @@
 }
 #pieGraphDiv{
     position: absolute;
-    right: 0;
-    top: 0px;
+    right: 40%;
+    top: 10%;
+    border-radius: 5px;
+}
+.hover-glow{
+    box-shadow: teal;
+}
+.hover-glow:hover{
+    animation: glowBackgroundShadow 1.25s  normal;
+}
+@keyframes glowBackgroundShadow{
+    to{
+        box-shadow: 0px 0px 10px 10px teal;
+        border-radius: 25px;
+    }
+}
+.easinToFrame{
+   animation-name: navBarEasIn;
+   animation-duration: 3s; 
+   animation-duration: 0.75s;
+}
+@keyframes navBarEasIn{
+    0%{
+        transform: 0%;
+        animation-timing-function: ease-in-out;
+    }
+    100%{
+        transform: 100%;
+        animation-timing-function: ease-in-out;
+    }
+}
+.positionMenu{
+    position: absolute;
+    
+    top: 270%;
 }
