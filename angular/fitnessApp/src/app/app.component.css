@@ -7,18 +7,7 @@
     margin: 0;
     padding: 0;
 }
-#navItemStyles{
-    transform: rotate(-87deg);
-    animation: blink normal 4s infinite ease-in-out;
-}
-#navItemStyles2{
-    transform: rotate(-87deg);
-    animation: blink normal 2s infinite ease-in-out;
-}
-#navItemStyles3{
-    transform: rotate(-87deg);
-    animation: blink normal 1.9s infinite ease-in-out;
-}
+
 /* I got the syntax for the blink animation from here: "https://www.codehaven.co.uk/css/blink-image-by-css/" than made my own version for the project*/
 @keyframes blink{
     0%{
@@ -68,6 +57,34 @@
 }
 .positionMenu{
     position: absolute;
-    
     top: 270%;
 }
+/*NEED TO FIND BETTER WAY TODO THIS ANIMATION!!!*/
+#navItemStyles{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;}
+#navItemStyles1{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 1s;}
+#navItemStyles2{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 2s;}
+#navItemStyles3{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 3s;}
+#navItemStyles4{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 4s;}
+#navItemStyles5{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 5s;}
+#navItemStyles6{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 6s;}
+#navItemStyles7{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 7s;}
+#navItemStyles8{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 8s;}
+#navItemStyles9{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 9s;}
+#navItemStyles10{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 10s;}
+#navItemStyles11{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 11s;}
+#navItemStyles12{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 12s;}
+#navItemStyles13{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 13s;}
+#navItemStyles14{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 14s;}
+#navItemStyles15{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 15s;}
+#navItemStyles16{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 16s;}
+#navItemStyles17{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 17s;}
+#navItemStyles18{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 18s;}
+#navItemStyles19{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 19s;}
+#navItemStyles20{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 20s;}
+#navItemStyles21{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 21s;}
+#navItemStyles22{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 22s;}
+#navItemStyles23{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 23s;}
+#navItemStyles24{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 24s;}
+#navItemStyles25{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 25s;}
+#navItemStyles26{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 26s;}
+#navItemStyles27{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 27s;}
