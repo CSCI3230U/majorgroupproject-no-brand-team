@@ -2,10 +2,9 @@
 #navbarStyles{
     background-color: #009933;
 }
-#backgroundColor{
+#divBackground{
     background-color: #404040;
-    margin: 0;
-    padding: 0;
+    
 }
 
 /* I got the syntax for the blink animation from here: "https://www.codehaven.co.uk/css/blink-image-by-css/" than made my own version for the project*/
