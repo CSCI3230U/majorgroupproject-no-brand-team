@@ -66,21 +66,6 @@
         border-radius: 25px;
     }
 }
-.easinToFrame{
-   animation-name: navBarEasIn;
-   animation-duration: 3s; 
-   animation-duration: 0.75s;
-}
-@keyframes navBarEasIn{
-    0%{
-        transform: 0%;
-        animation-timing-function: ease-in-out;
-    }
-    100%{
-        transform: 100%;
-        animation-timing-function: ease-in-out;
-    }
-}
 .positionMenu{
     position: absolute;
     
