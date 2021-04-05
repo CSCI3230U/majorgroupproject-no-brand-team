@@ -1,0 +1,50 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+/* LEFT */
+
+#left {
+  grid-column: 1;
+  margin: 1rem;
+  margin-right: 0.5rem;
+}
+
+#routes {
+  border: 1px solid black;
+  width: 20rem;
+  height: 48rem;
+  margin-left: auto;
+}
+
+/* RIGHT */
+
+#right {
+  grid-column: 2;
+  margin: 1rem;
+}
+
+#map {
+  height: 30rem;
+  width: 40rem;
+  margin-right: auto;
+}
+
+#route-info {
+  margin: 1rem;
+  margin-left: auto;
+}
+
+#route-name {
+  font-size: 200%;
+}
+
+#route-gen, #route-user {
+  font-size: 150%;
+  padding-top: 1rem;
+}
