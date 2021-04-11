@@ -18,7 +18,7 @@ body {
 #routes {
   border: 1px solid black;
   width: 20rem;
-  height: 48rem;
+  height: 51rem;
   margin-left: auto;
 }
 
@@ -47,4 +47,9 @@ body {
 #route-gen, #route-user {
   font-size: 150%;
   padding-top: 1rem;
+}
+
+#speed {
+  width: 5rem;
+  margin-top: 0.4rem;
 }

@@ -24,15 +24,18 @@
                 <label for="on-foot">On foot</label>
                 <input type="radio" id="bicycle" name="mode">
                 <label for="bicycle">Bicycle</label><br>
-
                 <label for="speed">Speed: </label>
-                <input type="text" id="speed" name="speed" disable="true">
+                <input type="text" id="speed" class="input is-small" disable="true">
             </form>
             <ul id="route-gen">
                 <li id="dist">Distance: 0.00 km</li>
                 <li id="duration">Duration: 0 minutes and 0 seconds</li>
                 <li id="cals">Calories: 0 cal</li>
             </ul>
+        </div>
+        <div id="route-save">
+            <button id="save" type="button" class="button is-dark">Save</button>
+            <button id="del" type="button" class="button is-danger">Delete</button>
         </div>
     </div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTPrt3gPUGnyzhxI-hn1LiGCd_gjzwXys&callback=initMap"></script>
