@@ -97,8 +97,29 @@ $(document).ready(function() {
 
         $('#save').click(function() {
             if (!dirRender.getDirections()) { return; }
-            console.log(dirRender.getDirections().geocoded_waypoints);
-            var waypoints = dirRender.getDirections().geocoded_waypoints;
+            
+            let name = window.prompt('Enter the route name.', '');
+            if (name == null || name == '') { return; }
+
+            let mode = $('input[name="mode"]:checked').attr('id');
+            if (mode == null) { return; }
+
+            let routes = document.getElementById('routes');
+            
+            let div = document.createElement('div');
+            div.setAttribute('class', 'box');
+
+            let strong = document.createElement('b');
+            strong.setAttribute('class', 'route-name');
+            strong.appendChild(document.createTextNode(`${name}`))
+            div.appendChild(strong);
+
+            let icon = document.createElement('img');
+            icon.setAttribute('src', `svg/${mode}.svg`);
+            icon.setAttribute('class', `route-icon`);
+            div.appendChild(icon);
+
+            routes.appendChild(div);
         })
     };
 

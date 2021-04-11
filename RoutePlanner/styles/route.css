@@ -16,10 +16,24 @@ body {
 }
 
 #routes {
-  border: 1px solid black;
   width: 20rem;
   height: 51rem;
   margin-left: auto;
+}
+
+.box {
+  width: 20rem;
+  height: 5rem;
+  font-size: 150%;
+}
+
+.route-icon {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 30%;
+  border: 2px solid black;
+  padding: 5px;
+  float: right;
 }
 
 /* RIGHT */
@@ -50,6 +64,6 @@ body {
 }
 
 #speed {
-  width: 5rem;
+  width: 2.5rem;
   margin-top: 0.4rem;
 }
