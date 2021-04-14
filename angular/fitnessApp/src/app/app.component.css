@@ -38,9 +38,10 @@
 }
 #pieGraphDiv{
     position: absolute;
-    right: 40%;
-    top: 10%;
+    right: 10%;
+    top: 120%;
     border-radius: 5px;
+    width: 30%;
 }
 .hover-glow{
     box-shadow: teal;
@@ -56,7 +57,24 @@
 }
 .positionMenu{
     position: absolute;
-    top: 270%;
+    top: 220%;
+    left: 2%;
+    padding: 0,0,0,0;
+}
+#sampleText{
+    color: white;
+    position: absolute;
+    font-family: 'Pacifico', cursive;
+    left: -110%;
+    top: 20%;
+    font-size: 1.2em;
+}
+.animateSlideIn{
+    position: relative;
+    animation: slideIn 1s;
+}
+@keyframes slideIn{
+    0% {}
 }
 /*NEED TO FIND BETTER WAY TODO THIS ANIMATION!!!*/
 #navItemStyles{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;}
