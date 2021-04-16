@@ -1,9 +1,13 @@
 body{
- background-color: grey;   
+ background-color: grey;
 }
 .lightClass{
     transform: rotate(-1deg);
 }
 .barColor{
     background-color: red;
+}
+
+label{
+    color: white;
 }
