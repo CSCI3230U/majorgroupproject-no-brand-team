@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+#navbarStyles{
+    background-color: #009933;
+}
+#divBackground{
+    background-color: #404040;
+    
+}
+
+/* I got the syntax for the blink animation from here: "https://www.codehaven.co.uk/css/blink-image-by-css/" than made my own version for the project*/
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 0;
+    }
+}
+
+#menuStyles{
+    width: 10%;
+}
+#pageSelectStyles{
+    color: white;
+    font-family: 'Pacifico', cursive;
+}
+#oneOfMainHeaders{
+    color: white; 
+    font-size: 3em;
+    font-family: 'Pacifico', cursive;
+}
+#MenuPosition{
+    position: relative;
+    left: .75%;
+}
+#HrStyles{
+    color: white;
+}
+#pieGraphDiv{
+    position: absolute;
+    right: 10%;
+    top: 120%;
+    border-radius: 5px;
+    width: 30%;
+}
+.hover-glow{
+    box-shadow: teal;
+}
+.hover-glow:hover{
+    animation: glowBackgroundShadow 1.25s  normal;
+}
+@keyframes glowBackgroundShadow{
+    to{
+        box-shadow: 0px 0px 10px 10px teal;
+        border-radius: 25px;
+    }
+}
+.positionMenu{
+    position: absolute;
+    top: 220%;
+    left: 2%;
+    padding: 0,0,0,0;
+}
+#sampleText{
+    color: white;
+    position: absolute;
+    font-family: 'Pacifico', cursive;
+    left: -110%;
+    top: 20%;
+    font-size: 1.2em;
+}
+.animateSlideIn{
+    position: relative;
+    animation: slideIn 1s;
+}
+@keyframes slideIn{
+    0% {}
+}
+/*NEED TO FIND BETTER WAY TODO THIS ANIMATION!!!*/
+#navItemStyles{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;}
+#navItemStyles1{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 1s;}
+#navItemStyles2{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 2s;}
+#navItemStyles3{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 3s;}
+#navItemStyles4{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 4s;}
+#navItemStyles5{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 5s;}
+#navItemStyles6{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 6s;}
+#navItemStyles7{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 7s;}
+#navItemStyles8{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 8s;}
+#navItemStyles9{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 9s;}
+#navItemStyles10{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 10s;}
+#navItemStyles11{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 11s;}
+#navItemStyles12{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 12s;}
+#navItemStyles13{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 13s;}
+#navItemStyles14{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 14s;}
+#navItemStyles15{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 15s;}
+#navItemStyles16{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 16s;}
+#navItemStyles17{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 17s;}
+#navItemStyles18{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 18s;}
+#navItemStyles19{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 19s;}
+#navItemStyles20{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 20s;}
+#navItemStyles21{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 21s;}
+#navItemStyles22{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 22s;}
+#navItemStyles23{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 23s;}
+#navItemStyles24{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 24s;}
+#navItemStyles25{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 25s;}
+#navItemStyles26{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 26s;}
+#navItemStyles27{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 27s;}
