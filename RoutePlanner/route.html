@@ -17,8 +17,9 @@
     <div id="right">
         <div id="map"></div>
         <div id="route-info">
-            <h1 id="route-name"><u>New Route</u></h1>
+            <!-- <h1 id="route-name"><u>New Route</u></h1> -->
             <form id="route-user">
+                <input type="text" id="name" class="input" disable="true" value="New Route Name" placeholder="Enter Route Name"><br>
                 <label for="mode">Method: </label>
                 <input type="radio" id="on-foot" name="mode">
                 <label for="on-foot">On foot</label>
@@ -29,9 +30,12 @@
                 <label for="speed">km/h</label>
             </form>
             <ul id="route-gen">
-                <li id="dist">Distance: 0.00 km</li>
-                <li id="duration">Duration: 0 minutes and 0 seconds</li>
-                <li id="cals">Calories: 0 cal</li>
+                <label for="dist">Distance: </label>
+                <li id="dist">0.00 km</li><br>
+                <label for="duration">Duration: </label>
+                <li id="duration">0 minutes and 0 seconds</li><br>
+                <label for="cals">Calories: </label>
+                <li id="cals">0 cal</li>
             </ul>
         </div>
         <div id="route-save">
