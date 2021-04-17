@@ -6,7 +6,12 @@ const basename = path.basename(__filename);
 const config = require('../config/config.json');
 
 const db = {};
-let sequelize = new Sequelize(config.development);
+let sequelize
+if (process.env.NODE_ENV == 'production'){
+  sequelize = new Sequelize(config.production);
+} else {
+  sequelize = new Sequelize(config.development);
+}
 
 fs.readdirSync(__dirname)
   .filter((file) => {

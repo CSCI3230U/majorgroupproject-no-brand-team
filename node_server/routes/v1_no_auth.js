@@ -11,8 +11,6 @@ const util = require('util');
 const jwtSign = util.promisify(jwt.sign);
 const jwtVerify = util.promisify(jwt.verify);
 
-const { signin } = require('../routes/users');
-
 router.post('/signup', async function (req, res) {
     try {
         const response = await registerUser(req);
