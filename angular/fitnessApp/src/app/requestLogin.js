@@ -5,7 +5,7 @@ export class AuthService{
     constructor(private http: HttpClient){
     }
     login(email:String, password:string){
-        return this.http.post<User>('api/login', {email, password}).password(res => this.setSession).shareReplay();
+        return this.http.post<User>('app.component.login.html', {email, password}).password(res => this.setSession).shareReplay();
     }
     private setSession(authResult){
         const expiesAt = moment().add(authResult.expiesIn, 'second');
