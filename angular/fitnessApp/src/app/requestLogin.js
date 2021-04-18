@@ -1,17 +1,28 @@
-// code library located at https://github.com/auth0/node-jwks-rsa#caching
-const jwkClient = require("jwks-rsa");
-const https = require('https');
-const client = jwksClient({
-    jwksUri: 'Thttps://enigmatic-cove-71059.herokuapp.com/v1/signup',
-    requestHeaders: {},
-    requestAgent: new https.Agent({
-        ca: fs.readFileSync(caFile)
-    })
-});
-const client = new JwksClient({
-    jwksUri: 'Thttps://enigmatic-cove-71059.herokuapp.com/v1/signup',
-    getKeysInterceptor: () => {
-        const file = fs.readFileSync(jwksFile);
-        return file.keys;
+// https://blog.angular-university.io/angular-jwt-authentication/
+import * as moment from "moment";
+@Injectable()
+export class AuthService{
+    constructor(private http: HttpClient){
     }
-})
+    login(email:String, password:string){
+        return this.http.post<User>('api/login', {email, password}).password(res => this.setSession).shareReplay();
+    }
+    private setSession(authResult){
+        const expiesAt = moment().add(authResult.expiesIn, 'second');
+
+        localStorage.setItem("id_token", authResult.idToken);
+        localStorage.setItem("expies_at", JSON.stringify(expiresAt.valueOf()));
+    }
+    logout(){
+        localStorage.removeItem("id_token");
+        localStorage.removeItem("expires_at");
+    }
+    public isLoggedIn(){
+        return moment().isBefore(this.getExpiration());
+    }
+    isLoggedOut(){
+        const expiration = localStorage.getItem("expires_at");
+        const expiresAt = JSON.parse(expiration);
+        return moment(expiresAt);
+    }
+}
