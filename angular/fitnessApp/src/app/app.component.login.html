@@ -18,6 +18,14 @@
                 });
             }
         }
+        function loadLoginFunction(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.status == 200){
+                    login();
+                }
+            }
+        }
     }
 </script>
 <div  class="container is-fluid" id="divBackground">
@@ -87,7 +95,7 @@
               <br/>
               <input type="password" placeholder="passwod" name="password" id="password_inputField" formControlName="password">
           </form>
-          <button class="button" id="buttonPress">Login</button>
+          <button class="button" onClick="loadLoginFunction()">Login</button>
       </div>
   </div>
     <br/>
