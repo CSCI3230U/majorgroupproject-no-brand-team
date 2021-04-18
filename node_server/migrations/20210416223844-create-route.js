@@ -11,8 +11,8 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      method: {
-        type: Sequelize.BOOLEAN
+      mode: {
+        type: Sequelize.STRING
       },
       speed: {
         type: Sequelize.FLOAT

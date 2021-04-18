@@ -92,17 +92,22 @@ router.get('/latlong', async (req, res) => {
 })
 
 router.get('/route', async (req, res) => {
-    const result = await Route.findAll({ where: { user_id: req.user.id } })
+    const result = await Route.findAll({ where: { user_id: req.user.id }, include: LatLong })
     res.json({ message: 'success', result })
 })
 
 router.post('/route', async (req, res) => {
     const result = await Route.create({
-        rate: req.body.rate,
+        name: req.body.name,
+        mode: req.body.mode,
+        speed: req.body.speed,
         user_id: req.user.id
     });
 
-    res.json({ message: 'successfully created Route', result })
+    req.body.waypoints.forEach(async function (item, index){
+        waypoint = await LatLong.create({lat: item.lat, long: item.lng, route_id: result.id})
+    })
+    res.json({ message: 'successfully created Route', result})
 })
 
 router.get('/user', async (req, res) => {

@@ -10,12 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Route.hasMany(models.LatLong, {
+        foreignKey: 'route_id'
+      })
     }
   };
   Route.init({
     name: DataTypes.STRING,
-    method: DataTypes.BOOLEAN,
+    mode: DataTypes.STRING,
     speed: DataTypes.FLOAT,
     user_id: DataTypes.INTEGER
   }, {
