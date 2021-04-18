@@ -101,12 +101,12 @@ body {
 }
 
 #name {
-    width: 25rem;
-    font-size: 110%;
+    width: 35rem;
+    /* font-size: 110%; */
     font-weight: bold;
 }
 
-label{
+/* label{
     display: inline-block;
     width: 120px;
     text-align: left;
@@ -114,4 +114,4 @@ label{
 
 li{
     display: inline;
-}
+} */
