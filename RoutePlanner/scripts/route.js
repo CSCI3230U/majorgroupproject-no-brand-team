@@ -4,9 +4,9 @@ $(document).ready(function() {
     var end;
 
     // should be fetched from back end
+    var routes;
     var home = { lat: 43.89, lng: -78.86 };
-    var mode = 'BICYCLING';
-    var weight = 150; // pounds
+    var weight = 150;
 
     initMap = function() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -15,7 +15,7 @@ $(document).ready(function() {
             disableDefaultUI: true,
             mapTypeControlOptions: {
                 mapTypeIds: ['style'],
-              },
+            },
         });
         $.getJSON('styles/map.JSON', function(data) {
             map.mapTypes.set('style', new google.maps.StyledMapType(data));
@@ -104,22 +104,13 @@ $(document).ready(function() {
             let mode = $('input[name="mode"]:checked').attr('id');
             if (mode == null) { return; }
 
-            let routes = document.getElementById('routes');
-            
-            let div = document.createElement('div');
-            div.setAttribute('class', 'box');
+            makeRouteBox(name, mode);
+            let route = getRouteJSON(name, mode, dirRender);
+            // save route to database
+        });
 
-            let strong = document.createElement('b');
-            strong.setAttribute('class', 'route-name');
-            strong.appendChild(document.createTextNode(`${name}`))
-            div.appendChild(strong);
-
-            let icon = document.createElement('img');
-            icon.setAttribute('src', `svg/${mode}.svg`);
-            icon.setAttribute('class', `route-icon`);
-            div.appendChild(icon);
-
-            routes.appendChild(div);
+        $('#left .box').click(function() {
+            console.log('123');
         })
     };
 
@@ -128,6 +119,39 @@ $(document).ready(function() {
             event.preventDefault();
         }
     });
+
+    function setSelectedRoute(route) {
+        
+    }
+
+    function getRouteJSON(name, mode, render) {
+        let speed = parseFloat(document.getElementById('speed').value);
+        let waypoints = [start.getPosition()];
+        wapoints = waypoints.concat(render.getDirections().routes[0].legs[0].via_waypoints);
+        waypoints.push(end.getPosition());
+        let route = {
+            name: name,
+            mode: mode,
+            speed: speed,
+            waypoints: waypoints,
+        };
+        return JSON.stringify(route);
+    }
+
+    function makeRouteBox(name, mode) {
+        let routes = document.getElementById('routes');
+        let div = document.createElement('div');
+        div.setAttribute('class', 'box');
+        let strong = document.createElement('b');
+        strong.setAttribute('class', 'route-name');
+        strong.appendChild(document.createTextNode(`${name}`));
+        div.appendChild(strong);
+        let icon = document.createElement('img');
+        icon.setAttribute('src', `svg/${mode}.svg`);
+        icon.setAttribute('class', `route-icon`);
+        div.appendChild(icon);
+        routes.appendChild(div);
+    }
 
     function changeRoute(start, end, service, render) {
         let options = {
@@ -148,14 +172,14 @@ $(document).ready(function() {
         if (!route) { return; }
 
         let distance = getDistance(route);
-        document.getElementById('dist').innerHTML = `Distance: ${distance.toFixed(2)} km`;
+        document.getElementById('dist').innerHTML = `${distance.toFixed(2)} km`;
 
         let speed = parseFloat(document.getElementById('speed').value) / 60.0;
         let duration = distance / speed;
-        document.getElementById('duration').innerHTML = `Duration: ${~~duration} minutes and ${~~((duration - ~~duration) * 60)} seconds`;
+        document.getElementById('duration').innerHTML = `${~~duration} minutes and ${~~((duration - ~~duration) * 60)} seconds`;
         
         let calories = getCalories(duration, speed * 60.0);
-        document.getElementById('cals').innerHTML = `Calories: ${Math.round(calories)} cal`;
+        document.getElementById('cals').innerHTML = `${Math.round(calories)} cal`;
     }
 
     function getDistance(route) {
