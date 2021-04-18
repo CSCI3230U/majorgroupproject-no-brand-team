@@ -1,3 +1,25 @@
+<!-- javascript from : https://blog.angular-university.io/angular-jwt-authentication/ -->
+<script>
+    export class LoginComponent{
+        constructor(
+            private authService: AuthService,
+            pivate router: Router
+        ){
+            this.form this.fb.group({
+                email: ['', Validators.required],
+                password: ['', Validators.required]
+            });
+        }
+        login(){
+            const val = this.form.value;
+            if(val.email and vale.password){
+                this.authService.login(val.email, val.password).subscribe( () => {
+                    this.router.navigateByUrl('/');
+                });
+            }
+        }
+    }
+</script>
 <div  class="container is-fluid" id="divBackground">
     <nav class="navbar is-fixed-top easinToFrame" id="navbarStyles" role="navigation" aria-label="Navigation Bar main page">
         <div class="navbar-brand">
@@ -61,11 +83,11 @@
       
           <form>
               <label><b>Sign In:</b></label>
-              <input type="text" placeholder="email" name="email" id="email_inputField">
+              <input type="text" placeholder="email" name="email" id="email_inputField" formControlName="email">
               <br/>
-              <input type="password" placeholder="passwod" name="password" id="password_inputField">
-              <input type="submit" value="submitUserDetails">
+              <input type="password" placeholder="passwod" name="password" id="password_inputField" formControlName="password">
           </form>
+          <button class="button" id="buttonPress">Login</button>
       </div>
   </div>
     <br/>
