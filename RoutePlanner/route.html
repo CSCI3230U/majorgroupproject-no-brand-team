@@ -9,36 +9,46 @@
     <script src="scripts/route.js"></script>
     <link rel="stylesheet" href="styles/route.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTPrt3gPUGnyzhxI-hn1LiGCd_gjzwXys&callback=initMap"></script>
 </head>
 <body>
     <div id="left">
-        <div id="routes"></div>
+        <div id="routes" class="box"></div>
     </div>
     <div id="right">
-        <div id="map"></div>
-        <div id="route-info">
-            <h1 id="route-name"><u>New Route</u></h1>
-            <form id="route-user">
-                <label for="mode">Method: </label>
-                <input type="radio" id="on-foot" name="mode">
-                <label for="on-foot">On foot</label>
-                <input type="radio" id="bicycle" name="mode">
-                <label for="bicycle">Bicycle</label><br>
-                <label for="speed">Speed: </label>
-                <input type="text" id="speed" class="input is-small" disable="true">
-                <label for="speed">km/h</label>
-            </form>
-            <ul id="route-gen">
-                <li id="dist">Distance: 0.00 km</li>
-                <li id="duration">Duration: 0 minutes and 0 seconds</li>
-                <li id="cals">Calories: 0 cal</li>
-            </ul>
-        </div>
-        <div id="route-save">
-            <button id="save" type="button" class="button is-dark">Save</button>
-            <button id="del" type="button" class="button is-danger">Delete</button>
+        <div id="map-box" class="box"><div id="map"></div></div>
+        <div id="route-info" class="box">
+            <div id="route-title">
+                <h1><u><b>New Route</b></u></h1>
+            </div>
+            <div id="route-form">
+                <div id="form-left">
+                    <label>Method: </label><br>
+                    <label>Speed: </label><br>
+                    <label>Distance: </label><br>
+                    <label>Duration: </label><br>
+                    <label>Calories: </label><br>
+                </div>
+                <div id="form-right">
+                    <input type="radio" id="on-foot" name="mode">
+                    <label>On foot</label>
+                    <input type="radio" id="bicycle" name="mode">
+                    <label>Bicycle</label><br>
+                    <input type="text" id="speed" class="input is-small" disable="true">
+                    <label>km/h</label>
+                    <ul id="route-gen">
+                        <li id="dist">0.00 km</li>
+                        <li id="duration">0 minutes and 0 seconds</li>
+                        <li id="cals">0 cal</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="route-save">
+                <button id="save" type="button" class="button is-dark">Save</button>
+                <button id="edit" type="button" class="button is-success">Edit</button>
+                <button id="del" type="button" class="button is-danger">Delete</button>
+            </div>
         </div>
     </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTPrt3gPUGnyzhxI-hn1LiGCd_gjzwXys&callback=initMap"></script>
 </body>
 </html>

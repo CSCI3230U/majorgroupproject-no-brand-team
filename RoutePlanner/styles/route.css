@@ -12,19 +12,20 @@ body {
 #left {
   grid-column: 1;
   margin: 1rem;
-  margin-right: 0.5rem;
 }
 
 #routes {
   width: 20rem;
-  height: 51rem;
+  height: 52rem;
   margin-left: auto;
+  border: 2px solid black;
 }
 
-.box {
-  width: 20rem;
+#routes .box {
+  width: 17rem;
   height: 5rem;
   font-size: 150%;
+  border: 2px solid black;
 }
 
 .route-icon {
@@ -43,27 +44,57 @@ body {
   margin: 1rem;
 }
 
-#map {
+#map-box {
   height: 30rem;
   width: 40rem;
-  margin-right: auto;
+  border: 2px solid black;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
 }
 
 #route-info {
-  margin: 1rem;
-  margin-left: auto;
+  height: 20rem;
+  width: 40rem;
+  margin-top: 2rem;
+  margin-right: auto;
+  border: 2px solid black;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-#route-name {
+#route-title {
   font-size: 200%;
+  height: 3.5rem;
 }
 
-#route-gen, #route-user {
+#route-form {
   font-size: 150%;
-  padding-top: 1rem;
+  height: 12rem;
+}
+
+#form-left {
+  width: 20%;
+  float: left;
+}
+
+#form-right {
+  width: 80%;
+  float: right;
 }
 
 #speed {
-  width: 2.5rem;
   margin-top: 0.4rem;
+  width: 2.5rem;
+}
+
+#route-save {
+  margin-top: 0.5rem;
+  height: 4rem;
+}
+
+#del {
+  float: right;
 }
