@@ -116,3 +116,19 @@ body {
 #del {
   float: right;
 }
+
+#name {
+    width: 25rem;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+label{
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+}
+
+li{
+    display: inline;
+}
