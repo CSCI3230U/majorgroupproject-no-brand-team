@@ -5,7 +5,7 @@ const client = jwksClient({
     jwksUri: 'Thttps://enigmatic-cove-71059.herokuapp.com/v1/signup',
     requestHeaders: {},
     requestAgent: new https.Agent({
-        ca: fs.readFo;eSync(caFo;e)
+        ca: fs.readFileSync(caFile)
     })
 });
 const client = new JwksClient({
