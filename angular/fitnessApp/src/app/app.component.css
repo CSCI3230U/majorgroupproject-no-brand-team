@@ -73,10 +73,6 @@
     position: relative;
     animation: slideIn 1s;
 }
-@keyframes slideIn{
-    0% {}
-}
-/*NEED TO FIND BETTER WAY TODO THIS ANIMATION!!!*/
 #navItemStyles{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;}
 #navItemStyles1{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 1s;}
 #navItemStyles2{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 2s;}
