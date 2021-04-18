@@ -19,6 +19,7 @@ body {
   height: 52rem;
   margin-left: auto;
   border: 2px solid black;
+  overflow: auto;
 }
 
 #routes .box {
