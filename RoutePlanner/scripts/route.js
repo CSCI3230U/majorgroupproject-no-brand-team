@@ -97,8 +97,8 @@ $(document).ready(function() {
 
         $('#save').click(function() {
             if (!dirRender.getDirections()) { return; }
-            
-            let name = window.prompt('Enter the route name.', '');
+
+            let name = $('#name').val();
             if (name == null || name == '') { return; }
 
             let mode = $('input[name="mode"]:checked').attr('id');
@@ -121,7 +121,7 @@ $(document).ready(function() {
     });
 
     function setSelectedRoute(route) {
-        
+
     }
 
     function getRouteJSON(name, mode, render) {
@@ -168,7 +168,7 @@ $(document).ready(function() {
         });
     }
 
-    function updateInfo(route) { 
+    function updateInfo(route) {
         if (!route) { return; }
 
         let distance = getDistance(route);
@@ -177,7 +177,7 @@ $(document).ready(function() {
         let speed = parseFloat(document.getElementById('speed').value) / 60.0;
         let duration = distance / speed;
         document.getElementById('duration').innerHTML = `${~~duration} minutes and ${~~((duration - ~~duration) * 60)} seconds`;
-        
+
         let calories = getCalories(duration, speed * 60.0);
         document.getElementById('cals').innerHTML = `${Math.round(calories)} cal`;
     }
@@ -187,20 +187,20 @@ $(document).ready(function() {
         for (let i = 0; i < route.routes[0].legs.length; i++) {
             distance += route.routes[0].legs[i].distance.value;
         }
-        
+
         return distance / 1000;
     }
 
     function getCalories(duration, speed) {
         let MET;
-        if (document.getElementById('bicycle').checked) { MET = getBikeMET(speed); } 
+        if (document.getElementById('bicycle').checked) { MET = getBikeMET(speed); }
         else if (document.getElementById('on-foot').checked) { MET = getFootMET(speed); }
         else { return 0; }
 
         return duration * MET  * weight * 0.007935;
     }
 
-    // rough 'metabolic equivalent of task' calculators 
+    // rough 'metabolic equivalent of task' calculators
     // linear regression based on data from https://golf.procon.org/met-values-for-800-activities/
     function getBikeMET(speed) {
         return Math.max(0, 0.45 * speed - 0.85);
