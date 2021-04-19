@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticateService } from '../../services/authenticate.service';
+import { Component, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as d3Scale from 'd3';
 import * as d3Shape from 'd3';
@@ -7,32 +6,25 @@ import * as d3Array from 'd3';
 import * as d3Axis from 'd3';
 
 @Component({
-  selector: 'app-bloodpressure',
-  templateUrl: './bloodpressure.component.html',
-  styleUrls: ['./bloodpressure.component.css']
+  selector: 'app-bar',
+  templateUrl: './bar.component.html',
+  styleUrls: ['./bar.component.css']
 })
-export class BloodpressureComponent implements OnInit {
-  graphData: any = {};
+export class BarComponent implements OnInit {
+
+  @Input() data: any;
   private margin = {top: 20, right: 20, bottom: 30, left: 50};
   private x: any;
   private y: any;
   private svg: any;
   private line: any;
 
-  constructor(private authService: AuthenticateService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.authService.bloodpressureGet().subscribe(
-      data => {
-        this.graphData = data.data;
-        // console.log(data)
-        console.log(this.graphData)
-        
-        this.buildSvg();
-        this.addXandYAxis();
-        this.drawLineAndPath();
-      }
-    )
+    this.buildSvg();
+    this.addXandYAxis();
+    this.drawLineAndPath();
   }
 
   private buildSvg() {
@@ -45,8 +37,8 @@ export class BloodpressureComponent implements OnInit {
     // range of data configuring
     this.x = d3Scale.scaleTime().range([0, 50]);
     this.y = d3Scale.scaleLinear().range([55, 0]);
-    this.x.domain(d3Array.extent(this.graphData.measure));
-    this.y.domain(d3Array.extent(this.graphData.time));
+    this.x.domain(d3Array.extent(this.data, (d: any) => d.pressure ));
+    this.y.domain(d3Array.extent(this.data, (d: any) => d.createdAt ));
 
     // Configure the X Axis
     this.svg.append('g')
@@ -60,13 +52,15 @@ export class BloodpressureComponent implements OnInit {
 
   private drawLineAndPath() {
     this.line = d3Shape.line()
-        .x( (d: any) => this.x(d.measure) )
-        .y( (d: any) => this.y(d.time) );
+        .x( (d: any) => this.x(d.pressure) )
+        .y( (d: any) => this.y(d.createdAt) );
     // Configuring line path
     this.svg.append('path')
-        .datum(this.graphData)
+        .datum(this.data)
         .attr('class', 'line')
         .attr('d', this.line);
   }
+
+
 
 }
