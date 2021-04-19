@@ -37,7 +37,11 @@ registerUser = async function (req) {
         );
         user.setDataValue('token', token)
 
-        return user
+        if (!user) {
+            res.status(409).json({ message: "Error creating user." })
+        } else {
+            return user
+        }
     }
 }
 
