@@ -147,7 +147,7 @@ router.post('/route', async (req, res) => {
 })
 
 router.delete('/route/:name', async (req, res) => {
-    const result = await Route.destroy({ where: { id: req.params.name, user_id: req.user.id } })
+    const result = await Route.destroy({ where: { name: req.params.name, user_id: req.user.id } })
 
     res.json({ message: 'successfully delete Route', result })
 })
