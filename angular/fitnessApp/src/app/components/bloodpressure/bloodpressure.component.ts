@@ -6,6 +6,7 @@ import * as d3Shape from 'd3';
 import * as d3Array from 'd3';
 import * as d3Axis from 'd3';
 
+declare var $: any;
 @Component({
   selector: 'app-bloodpressure',
   templateUrl: './bloodpressure.component.html',
@@ -19,6 +20,7 @@ export class BloodpressureComponent implements OnInit {
   private svg: any;
   private line: any;
 
+
   constructor(private authService: AuthenticateService) { }
 
   ngOnInit(): void {
@@ -31,6 +33,11 @@ export class BloodpressureComponent implements OnInit {
         this.buildSvg();
         this.addXandYAxis();
         this.drawLineAndPath();
+
+        
+      ($(document).ready(function() {
+        alert('jQuery')
+      }))
       }
     )
   }
