@@ -14,53 +14,102 @@ var chartData = [];
 $(document).ready(function() {
 
     createObject(time, weight);
-    buildLine("Weight vs Time", "Time", "Weight");
+    buildLine("Sample Data", "SampleTime", "SampleWeight");
 
     $('#submit').click(function() {
 
         var data;
         var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4ODYyMzQ1LCJleHAiOjE2MTg5NDg3NDV9.EhTogN_cG8CS2-GSTO6spt1HDz75pvulYZ4Gf7GDkGc';
-        $.ajax({
-            url: 'https://enigmatic-cove-71059.herokuapp.com/v1/bloodpressure',
-            type: 'GET',
-            headers: {"Authorization": 'Bearer ' + token},
-            success: function(res) {
-                data = res.result;
-                console.log(data);
+        chartData = [];
 
-                type = $('#chartType').val();
-                if(type == "weightTime"){
-                    d3.select("svg").remove();
-                    createObject(time, weight);
+        type = $('#chartType').val();
+        if(type == "weightTime"){
+            d3.select("svg").remove();
+
+            $.ajax({
+                url: 'https://enigmatic-cove-71059.herokuapp.com/v1/weight',
+                type: 'GET',
+                headers: {"Authorization": 'Bearer ' + token},
+                success: function(res) {
+                    data = res.result;
+
+                    for(i = 0; i < data.length; i++){
+                        chartData[i] = new Object();
+                        chartData[i].x = data[i].updatedAt;
+                        chartData[i].y = data[i].weight;
+                    }
+
                     buildLine("Weight vs Time", "Time", "Weight");
                 }
-                else if(type == "caloriesTime"){
-                    d3.select("svg").remove();
-                    createObject(time, calories);
+            });
+
+        }
+        else if(type == "caloriesTime"){
+            d3.select("svg").remove();
+            $.ajax({
+                url: 'https://enigmatic-cove-71059.herokuapp.com/v1/calories',
+                type: 'GET',
+                headers: {"Authorization": 'Bearer ' + token},
+                success: function(res) {
+                    data = res.result;
+
+                    for(i = 0; i < data.length; i++){
+                        chartData[i] = new Object();
+                        chartData[i].x = data[i].updatedAt;
+                        chartData[i].y = data[i].calories;
+                    }
+
                     buildLine("Calories vs Time", "Time", "Calories");
                 }
-                else if(type == "caloriesAct"){
-                    d3.select("svg").remove();
-                    createObject(activities, calories);
-                    buildBar("Calories vs Activity", "Activity", "Calories");
-                }
-                else if(type == "heartTime"){
-                    d3.select("svg").remove();
-                    createObject(time, heartRate);
+            });
+        }
+        else if(type == "caloriesAct"){
+            d3.select("svg").remove();
+            createObject(activities, calories);
+            buildBar("Calories vs Activity", "Activity", "Calories");
+        }
+        else if(type == "heartTime"){
+            d3.select("svg").remove();
+
+            $.ajax({
+                url: 'https://enigmatic-cove-71059.herokuapp.com/v1/heartrate',
+                type: 'GET',
+                headers: {"Authorization": 'Bearer ' + token},
+                success: function(res) {
+                    data = res.result;
+
+                    for(i = 0; i < data.length; i++){
+                        chartData[i] = new Object();
+                        chartData[i].x = data[i].updatedAt;
+                        chartData[i].y = data[i].rate;
+                    }
+
                     buildLine("Heartrate vs Time", "Time", "Heartrate");
                 }
-                else if(type == "bloodTime"){
-                    d3.select("svg").remove();
+            });
+
+        }
+        else if(type == "bloodTime"){
+            d3.select("svg").remove();
+
+            $.ajax({
+                url: 'https://enigmatic-cove-71059.herokuapp.com/v1/bloodpressure',
+                type: 'GET',
+                headers: {"Authorization": 'Bearer ' + token},
+                success: function(res) {
+                    data = res.result;
+                    console.log(data);
 
                     for(i = 0; i < data.length; i++){
                         chartData[i] = new Object();
                         chartData[i].x = data[i].updatedAt;
                         chartData[i].y = data[i].pressure;
                     }
+
                     buildLine("Blood pressure vs Time", "Time", "Pressure");
                 }
-            }
-        });
+            });
+        }
 
      });
  });
