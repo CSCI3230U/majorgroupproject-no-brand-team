@@ -97,6 +97,11 @@ router.get('/route', async (req, res) => {
     res.json({ message: 'success', result })
 })
 
+router.get('/route/:name', async (req, res) => {
+    const result = await Route.findOne({ where: { name: req.params.name, user_id: req.user.id }, include: LatLong })
+    res.json({ message: 'success', result })
+})
+
 router.post('/route', async (req, res) => {
     const result = await Route.create({
         name: req.body.name,
@@ -111,8 +116,8 @@ router.post('/route', async (req, res) => {
     res.json({ message: 'successfully created Route', result})
 })
 
-router.delete('/route/:id', async (req, res) => {
-    const result = await Route.destroy({where : {id : req.params.id, user_id: req.user.id}})
+router.delete('/route/:name', async (req, res) => {
+    const result = await Route.destroy({where : {id : req.params.name, user_id: req.user.id}})
 
     res.json({ message: 'successfully delete Route', result})
 })

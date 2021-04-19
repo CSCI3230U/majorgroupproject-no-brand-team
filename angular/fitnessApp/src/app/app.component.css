@@ -73,6 +73,11 @@
     position: relative;
     animation: slideIn 1s;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+  }
 #navItemStyles{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;}
 #navItemStyles1{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 1s;}
 #navItemStyles2{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 2s;}
