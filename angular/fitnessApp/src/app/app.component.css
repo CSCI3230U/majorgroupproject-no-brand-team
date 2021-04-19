@@ -3,8 +3,7 @@
     background-color: #009933;
 }
 #divBackground{
-    background-color: #404040;
-    
+    background-color: #404040; 
 }
 div{
     font-family: 'Pacifico', cursive;
@@ -18,7 +17,9 @@ div{
         opacity: 0;
     }
 }
-
+#roundFooter{
+    border-radius: 200px;
+}
 #menuStyles{
     width: 10%;
 }
