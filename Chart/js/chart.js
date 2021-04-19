@@ -17,33 +17,51 @@ $(document).ready(function() {
     buildLine("Weight vs Time", "Time", "Weight");
 
     $('#submit').click(function() {
-        console.log("test");
-        type = $('#chartType').val();
-        if(type == "weightTime"){
-            d3.select("svg").remove();
-            createObject(time, weight);
-            buildLine("Weight vs Time", "Time", "Weight");
-        }
-        else if(type == "caloriesTime"){
-            d3.select("svg").remove();
-            createObject(time, calories);
-            buildLine("Calories vs Time", "Time", "Calories");
-        }
-        else if(type == "caloriesAct"){
-            d3.select("svg").remove();
-            createObject(activities, calories);
-            buildBar("Calories vs Activity", "Activity", "Calories");
-        }
-        else if(type == "heartTime"){
-            d3.select("svg").remove();
-            createObject(time, heartRate);
-            buildLine("Heartrate vs Time", "Time", "Heartrate");
-        }
-        else if(type == "bloodTime"){
-            d3.select("svg").remove();
-            createObject(time, blood);
-            buildLine("Calories vs Time", "Time", "Calories");
-        }
+
+        var data;
+        var token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4ODYyMzQ1LCJleHAiOjE2MTg5NDg3NDV9.EhTogN_cG8CS2-GSTO6spt1HDz75pvulYZ4Gf7GDkGc';
+        $.ajax({
+            url: 'https://enigmatic-cove-71059.herokuapp.com/v1/bloodpressure',
+            type: 'GET',
+            headers: {"Authorization": 'Bearer ' + token},
+            success: function(res) {
+                data = res.result;
+                console.log(data);
+
+                type = $('#chartType').val();
+                if(type == "weightTime"){
+                    d3.select("svg").remove();
+                    createObject(time, weight);
+                    buildLine("Weight vs Time", "Time", "Weight");
+                }
+                else if(type == "caloriesTime"){
+                    d3.select("svg").remove();
+                    createObject(time, calories);
+                    buildLine("Calories vs Time", "Time", "Calories");
+                }
+                else if(type == "caloriesAct"){
+                    d3.select("svg").remove();
+                    createObject(activities, calories);
+                    buildBar("Calories vs Activity", "Activity", "Calories");
+                }
+                else if(type == "heartTime"){
+                    d3.select("svg").remove();
+                    createObject(time, heartRate);
+                    buildLine("Heartrate vs Time", "Time", "Heartrate");
+                }
+                else if(type == "bloodTime"){
+                    d3.select("svg").remove();
+
+                    for(i = 0; i < data.length; i++){
+                        chartData[i] = new Object();
+                        chartData[i].x = data[i].updatedAt;
+                        chartData[i].y = data[i].pressure;
+                    }
+                    buildLine("Blood pressure vs Time", "Time", "Pressure");
+                }
+            }
+        });
+
      });
  });
 
