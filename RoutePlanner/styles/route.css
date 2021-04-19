@@ -2,12 +2,46 @@ html, body {
   height: 100%;
 }
 
-body {
+#full-route-container {
   display: grid;
   grid-template-columns: 2fr 3fr;
 }
 
-/* Scrollbar styles */
+/* LEFT */
+
+#left {
+  grid-column: 1;
+  margin: 1rem;
+}
+
+#routes {
+  width: 20rem;
+  height: 51.5rem;
+  margin-left: auto;
+  border: 2px solid black;
+  overflow: auto;
+}
+
+#routes .box {
+  width: 17rem;
+  height: 5rem;
+  font-size: 120%;
+  padding-top: 1.5rem;
+  border: 2px solid black;
+}
+
+.route-icon {
+  max-height: 120%;
+  max-width: 120%;
+  border-radius: 30%;
+  border: 2px solid black;
+  padding: 5px;
+  float: right;
+  margin-top: -0.25rem;
+}
+
+/* SCROLLBAR */
+
 ::-webkit-scrollbar {
   width: 12px;              
 }
@@ -28,37 +62,6 @@ body {
   background-color: gray;    
 }
 
-/* LEFT */
-
-#left {
-  grid-column: 1;
-  margin: 1rem;
-}
-
-#routes {
-  width: 20rem;
-  height: 52rem;
-  margin-left: auto;
-  border: 2px solid black;
-  overflow: auto;
-}
-
-#routes .box {
-  width: 17rem;
-  height: 5rem;
-  font-size: 150%;
-  border: 2px solid black;
-}
-
-.route-icon {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 30%;
-  border: 2px solid black;
-  padding: 5px;
-  float: right;
-}
-
 /* RIGHT */
 
 #right {
@@ -70,6 +73,7 @@ body {
   height: 30rem;
   width: 40rem;
   border: 2px solid black;
+  padding: 1px;
 }
 
 #map {
@@ -78,7 +82,7 @@ body {
 }
 
 #route-info {
-  height: 20rem;
+  height: 19.5rem;
   width: 40rem;
   margin-top: 2rem;
   margin-right: auto;
@@ -89,50 +93,85 @@ body {
 
 #route-title {
   font-size: 200%;
-  height: 3.5rem;
+  height: 4.5rem;
 }
 
 #route-form {
-  font-size: 150%;
-  height: 12rem;
+  font-size: 125%;
+  height: 10rem;
 }
 
 #form-left {
-  width: 20%;
+  width: 17%;
   float: left;
 }
 
 #form-right {
-  width: 80%;
+  width: 83%;
   float: right;
 }
 
 #speed {
-  margin-top: 0.4rem;
-  width: 2.5rem;
+  margin-top: 0rem;
+  width: 3rem;
+  height: 1.75rem;
 }
 
-#route-save {
-  margin-top: 0.5rem;
-  height: 4rem;
+#route-title {
+  margin-top: 0.75rem;
+}
+
+#route-name {
+  width: 15rem;
+  font-weight: bold;
 }
 
 #del {
   float: right;
 }
 
-#name {
-    width: 35rem;
-    /* font-size: 110%; */
-    font-weight: bold;
-}
+/* MOBILE */
 
-/* label{
-    display: inline-block;
-    width: 120px;
-    text-align: left;
-}
+@media (max-width: 600px) {
+  #full-route-container {
+    display: flex;
+    flex-flow: column-reverse;
+  }
 
-li{
-    display: inline;
-} */
+  #right {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #map-box {
+    width: 100%;
+    height: 20rem;
+  }
+
+  #route-info {
+    margin-top: 0rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  #form-right {
+    padding-left: 2.5rem;
+  }
+
+  #left {
+    margin: 0rem;
+  }
+
+  #routes {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #routes .box {
+    width: 100%;
+  }
+}
