@@ -6,7 +6,9 @@
     background-color: #404040;
     
 }
-
+div{
+    font-family: 'Pacifico', cursive;
+}
 /* I got the syntax for the blink animation from here: "https://www.codehaven.co.uk/css/blink-image-by-css/" than made my own version for the project*/
 @keyframes blink{
     0%{
