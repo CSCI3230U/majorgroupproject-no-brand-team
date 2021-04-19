@@ -1,0 +1,40 @@
+<!-- javascript from : https://blog.angular-university.io/angular-jwt-authentication/
+<script>
+    export class LoginComponent {
+        constructor(
+            private authService: AuthService,
+            pivate router: Router
+        ) {
+            this.form this.fb.group({
+                email: ['', Validators.required],
+                password: ['', Validators.required]
+            });
+        }
+        login() {
+            const val = this.form.value;
+            if (val.email and vale.password) {
+                this.authService.login(val.email, val.password).subscribe(() => {
+                    this.router.navigateByUrl('/');
+                });
+            }
+        }
+        function loadLoginFunction() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.status == 200) {
+                login();
+            }
+        }
+    }
+    }
+</script> -->
+<!-- <div class="container">
+    <form>
+        <label><b>Sign In:</b></label>
+        <input type="text" placeholder="email" name="email" id="email_inputField" formControlName="email">
+        <br />
+        <input type="password" placeholder="passwod" name="password" id="password_inputField"
+            formControlName="password">
+    </form>
+    <button class="button" onClick="loadLoginFunction()">Login</button>
+</div> -->

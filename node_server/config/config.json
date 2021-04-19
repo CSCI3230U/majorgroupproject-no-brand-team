@@ -1,0 +1,21 @@
+{
+  "development": {
+    "username": "noBrandAdmin",
+    "password": "password",
+    "database": "noBrandDB",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "sunuvfqbbokgps",
+    "password": "2856c864d724278f3983c10fd713d57c9919c8536ddd302b40378d7ee2e50918",
+    "database": "d6bas5290tvvua",
+    "host": "ec2-23-22-191-232.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "operatorsAliases": false,
+    "dialectOptions": {
+      "ssl": { "rejectUnauthorized": false}
+    },
+    "use_env_variable": "DATABASE_URL"
+  }
+}

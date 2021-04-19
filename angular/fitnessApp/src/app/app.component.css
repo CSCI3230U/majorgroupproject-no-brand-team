@@ -3,10 +3,11 @@
     background-color: #009933;
 }
 #divBackground{
-    background-color: #404040;
-    
+    background-color: #404040; 
 }
-
+div{
+    font-family: 'Pacifico', cursive;
+}
 /* I got the syntax for the blink animation from here: "https://www.codehaven.co.uk/css/blink-image-by-css/" than made my own version for the project*/
 @keyframes blink{
     0%{
@@ -16,7 +17,9 @@
         opacity: 0;
     }
 }
-
+#roundFooter{
+    border-radius: 200px;
+}
 #menuStyles{
     width: 10%;
 }
@@ -73,10 +76,11 @@
     position: relative;
     animation: slideIn 1s;
 }
-@keyframes slideIn{
-    0% {}
-}
-/*NEED TO FIND BETTER WAY TODO THIS ANIMATION!!!*/
+
+.center {
+    display: flex;
+    justify-content: center;
+  }
 #navItemStyles{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;}
 #navItemStyles1{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 1s;}
 #navItemStyles2{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 2s;}
