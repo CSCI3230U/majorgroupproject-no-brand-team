@@ -17,8 +17,8 @@ div{
         opacity: 0;
     }
 }
-#roundFooter{
-    border-radius: 200px;
+html{
+    background-color: #404040; 
 }
 #menuStyles{
     width: 10%;
@@ -76,6 +76,11 @@ div{
     position: relative;
     animation: slideIn 1s;
 }
+@media only screen and (min-width:1408px){
+    #minWidthHidden{
+        display: none;
+    }
+}
 
 .center {
     display: flex;
@@ -108,4 +113,20 @@ div{
 #navItemStyles24{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 24s;}
 #navItemStyles25{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 25s;}
 #navItemStyles26{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 26s;}
-#navItemStyles27{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 27s;}
+#navItemStyles28{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 27s;}
+#navItemStyles29{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 28s;}
+#navItemStyles30{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 29s;}
+#navItemStyles31{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 30s;}
+#navItemStyles32{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 31s;}
+#navItemStyles33{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 32s;}
+#navItemStyles34{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 33s;}
+#navItemStyles35{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 34s;}
+#navItemStyles36{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 35s;}
+#navItemStyles37{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 36s;}
+#navItemStyles38{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 37s;}
+#navItemStyles39{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 38s;}
+#navItemStyles40{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 39s;}
+#navItemStyles41{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 40s;}
+#navItemStyles42{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 41s;}
+#navItemStyles43{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 42s;}
+#navItemStyles44{transform: rotate(-87deg);animation: blink normal 1.5s infinite ease-in-out;animation-delay: 43s;}
