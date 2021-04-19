@@ -96,13 +96,22 @@ $(document).ready(function() {
         });
 
         $('#save').click(function() {
-            if (!dirRender.getDirections()) { return; }
+            if (!dirRender.getDirections()) {
+                window.alert("Please select an end point.");
+                return;
+            }
 
             let name = $('#name').val();
-            if (name == null || name == '') { return; }
+            if (name == null || name == '') {
+                window.alert("Please enter a route name.");
+                return;
+            }
 
             let mode = $('input[name="mode"]:checked').attr('id');
-            if (mode == null) { return; }
+            if (mode == null) {
+                window.alert("Please select a method of transportation.");
+                return;
+            }
 
             makeRouteBox(name, mode);
             let route = getRouteJSON(name, mode, dirRender);
@@ -126,6 +135,10 @@ $(document).ready(function() {
 
     function getRouteJSON(name, mode, render) {
         let speed = parseFloat(document.getElementById('speed').value);
+        if (!(speed>0)) {
+            window.alert("Please enter a speed.");
+            return;
+        }
         let waypoints = [start.getPosition()];
         wapoints = waypoints.concat(render.getDirections().routes[0].legs[0].via_waypoints);
         waypoints.push(end.getPosition());
