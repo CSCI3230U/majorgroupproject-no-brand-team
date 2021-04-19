@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Planner</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="scripts/route.js"></script>
+    <link rel="stylesheet" href="styles/route.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTPrt3gPUGnyzhxI-hn1LiGCd_gjzwXys&callback=initMap"></script>
+</head>
+<body>
+    <div id="left">
+        <div id="routes" class="box"></div>
+    </div>
+    <div id="right">
+        <div id="map-box" class="box"><div id="map"></div></div>
+        <div id="route-info" class="box">
+            <div id="route-title">
+                <input type="text" id="name" class="input" disable="true" value="New Route Name" placeholder="Enter Route Name">
+            </div>
+            <div id="route-form">
+                <div id="form-left">
+                    <label>Method: </label><br>
+                    <label>Speed: </label><br>
+                    <label>Distance: </label><br>
+                    <label>Duration: </label><br>
+                    <label>Calories: </label><br>
+                </div>
+                <div id="form-right">
+                    <input type="radio" id="on-foot" name="mode">
+                    <label>On foot</label>
+                    <input type="radio" id="bicycle" name="mode">
+                    <label>Bicycle</label><br>
+                    <input type="text" id="speed" class="input is-small" disable="true">
+                    <label>km/h</label>
+                    <ul id="route-gen">
+                        <li id="dist">0.00 km</li>
+                        <li id="duration">0 minutes and 0 seconds</li>
+                        <li id="cals">0 cal</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="route-save">
+                <button id="save" type="button" class="button is-dark">Save</button>
+                <button id="edit" type="button" class="button is-success">Edit</button>
+                <button id="del" type="button" class="button is-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
