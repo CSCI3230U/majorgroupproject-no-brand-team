@@ -1,8 +1,8 @@
 <div class="container">
-    <nav style="background-color: green; width: 1000%;" class="navbar navbar-expand navbar-dark bg-dark">
+    <nav align="left" style="background-color: green; width: 100%; " class="navbar is-fixed-top">
         <div class="navbar-brand">
             <a class="navbar-item" href="index.html">
-                <img style="width: 200%; height: 70%;" src="./assets/images/logo.png">
+                <img style="width: 200%; height: 70%; padding: -10%;" src="./assets/images/logo.png">
             </a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
@@ -11,10 +11,11 @@
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <ul class="navbar-nav mr-auto is-fixed-top" routerLinkActive="active">
+        <ul class="navbar-nav mr-auto " routerLinkActive="active">
             <div class='navbar-start'>
                 <a href="/home" class="nav-link navbar-item" routerLink="home">Home </a>
                 <a href="/user" class="nav-link navbar-item" *ngIf="isLoggedIn" routerLink="user">User</a>
+                
                 <img class="navbar-item baseTransform" id="navItemStyles" src="./assets/images/light.png" width="100px"
                 height="100px">
             <img class="navbar-item" id="navItemStyles1" src="./assets/images/light.png" width="100px"
@@ -59,8 +60,11 @@
 </div>
 
 <div class="container">
-
     <div class="container">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <p align="center" class="animateSlideIn" id="oneOfMainHeaders">Fitness made better</p>
         <hr />
         <div id="pieGraphDiv" class="is-hidden-mobile">
