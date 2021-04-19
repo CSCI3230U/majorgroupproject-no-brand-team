@@ -14,6 +14,12 @@ import { RegisterComponent } from './components/register/register.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BloodpressureComponent } from './components/bloodpressure/bloodpressure.component';
+import { CaloriesComponent } from './components/calories/calories.component';
+import { WeightComponent } from './components/weight/weight.component';
+import { RouteComponent } from './components/route/route.component';
+import { UserComponent } from './components/user/user.component';
+import { HeartrateComponent } from './components/heartrate/heartrate.component';
+import { BarComponent } from './components/bar/bar.component';
 
 
 
@@ -24,7 +30,13 @@ import { BloodpressureComponent } from './components/bloodpressure/bloodpressure
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    BloodpressureComponent
+    BloodpressureComponent,
+    CaloriesComponent,
+    WeightComponent,
+    RouteComponent,
+    UserComponent,
+    HeartrateComponent,
+    BarComponent
   ],
   imports: [
     BrowserModule,

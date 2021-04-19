@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
 const AUTH_API = 'http://enigmatic-cove-71059.herokuapp.com/v1/';
-// const AUTH_API = 'localhost:3000/v1/'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -36,6 +35,22 @@ export class AuthenticateService {
 
   bloodpressureGet(): Observable<any> {
     return this.http.get(AUTH_API + 'bloodpressure/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+  
+  calorieGet(): Observable<any> {
+    return this.http.get(AUTH_API + 'calories/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+
+  heartrateGet(): Observable<any> {
+    return this.http.get(AUTH_API + 'heartrate/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+
+  routeGet(): Observable<any> {
+    return this.http.get(AUTH_API + 'route', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+
+  weightGet(): Observable<any> {
+    return this.http.get(AUTH_API + 'weight/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
   }
 
 
