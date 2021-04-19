@@ -8,6 +8,7 @@ import { CaloriesComponent } from './components/calories/calories.component';
 import { HeartrateComponent } from './components/heartrate/heartrate.component';
 import { RouteComponent } from './components/route/route.component';
 import { WeightComponent } from './components/weight/weight.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'heartrate', component: HeartrateComponent}, 
   { path: 'route', component: RouteComponent}, 
   { path: 'weight', component: WeightComponent}, 
+  { path: 'home', component: HomeComponent}, 
 
 ]
 @NgModule({

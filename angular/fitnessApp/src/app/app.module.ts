@@ -20,6 +20,7 @@ import { RouteComponent } from './components/route/route.component';
 import { UserComponent } from './components/user/user.component';
 import { HeartrateComponent } from './components/heartrate/heartrate.component';
 import { BarComponent } from './components/bar/bar.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -36,7 +37,8 @@ import { BarComponent } from './components/bar/bar.component';
     RouteComponent,
     UserComponent,
     HeartrateComponent,
-    BarComponent
+    BarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
