@@ -37,22 +37,30 @@ registerUser = async function (req) {
         );
         user.setDataValue('token', token)
 
-        return user
+        if (!user) {
+            res.status(409).json({ message: "Error creating user." })
+        } else {
+            return user
+        }
     }
 }
 
 
 router.post('/signin', async (req, res, next) => {
     passport.authenticate('login', async (err, user, info) => {
-        const token = await jwtSign(
-            {
-                id: user.id,
-            },
-            jwtConfig.secret,
-            { expiresIn: '24h' },
-        );
-
-        res.json({user: user, token: token})
+        if (!user){
+            res.status(401).json({message: "login failed"})
+        } else {
+            const token = await jwtSign(
+                {
+                    id: user.id,
+                },
+                jwtConfig.secret,
+                { expiresIn: '24h' },
+            );
+    
+            res.status(200).json({user: user, token: token})
+        }
     })(req, res, next);
 })
 
