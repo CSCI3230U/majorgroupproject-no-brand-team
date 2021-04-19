@@ -17,8 +17,8 @@ div{
         opacity: 0;
     }
 }
-#roundFooter{
-    border-radius: 200px;
+html{
+    background-color: #404040; 
 }
 #menuStyles{
     width: 10%;
