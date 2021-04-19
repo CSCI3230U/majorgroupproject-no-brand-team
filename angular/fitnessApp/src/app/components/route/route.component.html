@@ -1,1 +1,40 @@
-<p>route works!</p>
+<div class="section" id ="full-route-container">
+    <div id="left">
+        <div id="routes" class="box"></div>
+    </div>
+    <div id="right">
+        <div id="map-box" class="box"><div id="map"></div></div>
+        <div id="route-info" class="box">
+            <div id="route-title">
+                <input type="text" id="name" class="input" disable="true" value="New Route Name" placeholder="Enter Route Name">
+            </div>
+            <div id="route-form">
+                <div id="form-left">
+                    <label>Method: </label><br>
+                    <label>Speed: </label><br>
+                    <label>Distance: </label><br>
+                    <label>Duration: </label><br>
+                    <label>Calories: </label><br>
+                </div>
+                <div id="form-right">
+                    <input type="radio" id="on-foot" name="mode">
+                    <label>On foot</label>
+                    <input type="radio" id="bicycle" name="mode">
+                    <label>Bicycle</label><br>
+                    <input type="text" id="speed" class="input is-small" disable="true">
+                    <label>km/h</label>
+                    <ul id="route-gen">
+                        <li id="dist">0.00 km</li>
+                        <li id="duration">0 minutes and 0 seconds</li>
+                        <li id="cals">0 cal</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="route-save">
+                <button id="save" type="button" class="button is-dark">Save</button>
+                <button id="edit" type="button" class="button is-success">Edit</button>
+                <button id="del" type="button" class="button is-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

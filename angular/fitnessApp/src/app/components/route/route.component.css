@@ -1,0 +1,139 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+  }
+  
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 12px;              
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: whitesmoke;               
+    box-shadow: inset 0 0 10px lightgray;      
+    border-radius: 15px;                    
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: lightgray;    
+    border-radius: 25px;       
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: gray;    
+  }
+  
+  /* LEFT */
+  
+  #left {
+    grid-column: 1;
+    margin: 1rem;
+  }
+  
+  #routes {
+    width: 20rem;
+    height: 52rem;
+    margin-left: auto;
+    border: 2px solid black;
+    overflow: auto;
+  }
+  
+  #routes .box {
+    width: 17rem;
+    height: 5rem;
+    font-size: 150%;
+    border: 2px solid black;
+  }
+  
+  .route-icon {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 30%;
+    border: 2px solid black;
+    padding: 5px;
+    float: right;
+  }
+  
+  /* RIGHT */
+  
+  #right {
+    grid-column: 2;
+    margin: 1rem;
+  }
+  
+  #map-box {
+    height: 30rem;
+    width: 40rem;
+    border: 2px solid black;
+  }
+  
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+  
+  #route-info {
+    height: 20rem;
+    width: 40rem;
+    margin-top: 2rem;
+    margin-right: auto;
+    border: 2px solid black;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  #route-title {
+    font-size: 200%;
+    height: 3.5rem;
+  }
+  
+  #route-form {
+    font-size: 150%;
+    height: 12rem;
+  }
+  
+  #form-left {
+    width: 20%;
+    float: left;
+  }
+  
+  #form-right {
+    width: 80%;
+    float: right;
+  }
+  
+  #speed {
+    margin-top: 0.4rem;
+    width: 2.5rem;
+  }
+  
+  #route-save {
+    margin-top: 0.5rem;
+    height: 4rem;
+  }
+  
+  #del {
+    float: right;
+  }
+  
+  #name {
+      width: 35rem;
+      /* font-size: 110%; */
+      font-weight: bold;
+  }
+  
+  /* label{
+      display: inline-block;
+      width: 120px;
+      text-align: left;
+  }
+  
+  li{
+      display: inline;
+  } */
+  
