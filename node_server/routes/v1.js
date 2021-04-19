@@ -103,23 +103,53 @@ router.get('/route/:name', async (req, res) => {
 })
 
 router.post('/route', async (req, res) => {
-    const result = await Route.create({
-        name: req.body.name,
-        mode: req.body.mode,
-        speed: req.body.speed,
-        user_id: req.user.id
-    });
+    // const result = await Route.create({
+    //     name: req.body.name,
+    //     mode: req.body.mode,
+    //     speed: req.body.speed,
+    //     user_id: req.user.id
+    // });
 
-    req.body.waypoints.forEach(async function (item, index){
-        waypoint = await LatLong.create({lat: item.lat, long: item.lng, route_id: result.id})
-    })
-    res.json({ message: 'successfully created Route', result})
+    // req.body.waypoints.forEach(async function (item, index){
+    //     waypoint = await LatLong.create({lat: item.lat, long: item.lng, route_id: result.id})
+    // })
+    // res.json({ message: 'successfully created Route', result})
+
+    const model = await Route.findOne({ where: { name: req.body.name, user_id: req.user.id } })
+
+    if (!model) {
+        const result = await Route.create({
+            name: req.body.name,
+            mode: req.body.mode,
+            speed: req.body.speed,
+            user_id: req.user.id
+        });
+
+        req.body.waypoints.forEach(async function (item, index) {
+            waypoint = await LatLong.create({ lat: item.lat, long: item.lng, route_id: result.id })
+        })
+        res.json({ message: 'successfully created Route', result })
+    } else {
+        await Route.destroy({ where: { name: req.body.name, user_id: req.user.id }, include: LatLong })
+        const result = await Route.create({
+            name: req.body.name,
+            mode: req.body.mode,
+            speed: req.body.speed,
+            user_id: req.user.id
+        });
+
+        req.body.waypoints.forEach(async function (item, index) {
+            waypoint = await LatLong.create({ lat: item.lat, long: item.lng, route_id: result.id })
+        })
+        res.json({ message: 'successfully created Route', result})
+    }
+
 })
 
 router.delete('/route/:name', async (req, res) => {
-    const result = await Route.destroy({where : {id : req.params.name, user_id: req.user.id}})
+    const result = await Route.destroy({ where: { id: req.params.name, user_id: req.user.id } })
 
-    res.json({ message: 'successfully delete Route', result})
+    res.json({ message: 'successfully delete Route', result })
 })
 
 router.get('/user', async (req, res) => {
