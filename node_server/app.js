@@ -3,6 +3,17 @@ const router = require('express').Router();
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const app = express();
+var cors = require('cors')
+
+// options = {
+//   origin: true,
+//   credentials: true,
+//   allowedHeaders: ['Authorization', 'Content-Type'],
+//   preflightContinue: true
+// }
+
+app.use(cors())
+app.options('*', cors())
 
 
 require('./config/passport');

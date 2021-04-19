@@ -45,12 +45,13 @@ registerUser = async function (req) {
 router.post('/signin', async (req, res, next) => {
     passport.authenticate('login', async (err, user, info) => {
         console.log(user.id)
+        console.log(token)
         const token = await jwtSign(
             {
                 id: user.id,
             },
             jwtConfig.secret,
-            { expiresIn: '60m' },
+            { expiresIn: '24h' },
         );
 
         res.json({user: user, token: token})

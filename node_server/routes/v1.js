@@ -1,6 +1,7 @@
 const express = require('express');
 const { BloodPressure, Calories, HeartRate, LatLong, Route, User, Weight } = require('../models');
 const router = express.Router();
+var cors = require('cors')
 
 router.get('/bloodpressure', async (req, res) => {
     const result = await BloodPressure.findAll({ where: { user_id: req.user.id } })
@@ -108,6 +109,12 @@ router.post('/route', async (req, res) => {
         waypoint = await LatLong.create({lat: item.lat, long: item.lng, route_id: result.id})
     })
     res.json({ message: 'successfully created Route', result})
+})
+
+router.delete('/route/:id', async (req, res) => {
+    const result = await Route.destroy({where : {id : req.params.id, user_id: req.user.id}})
+
+    res.json({ message: 'successfully delete Route', result})
 })
 
 router.get('/user', async (req, res) => {
