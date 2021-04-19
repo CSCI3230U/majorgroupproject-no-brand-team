@@ -14,6 +14,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticateService {
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }

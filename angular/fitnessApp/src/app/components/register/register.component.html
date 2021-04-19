@@ -54,10 +54,13 @@
       </div>
       <div class="form-group">
         <label for="height">Height</label>
-        <input type="height" class="form-control" name="height" [(ngModel)]="form.height" required minlength="6"
+        <input type="height" class="form-control" name="height" [(ngModel)]="form.height" required minlength="1"
           #height="ngModel" />
         <div class="alert-danger" *ngIf="height.errors && f.submitted">
           <div *ngIf="height.errors.required">Height is required</div>
+          <div *ngIf="height.errors.minlength">
+            Height must be at least 1 characters
+          </div>
         </div>
       </div>
       <div class="form-group">
@@ -73,12 +76,12 @@
       </div>
       <div class="form-group">
         <label for="phone_number">Phone Number</label>
-        <input type="phone_number" class="form-control" name="phone_number" [(ngModel)]="form.phone_number" required minlength="6"
+        <input type="phone_number" class="form-control" name="phone_number" [(ngModel)]="form.phone_number" required minlength="9"
           #phone_number="ngModel" />
         <div class="alert-danger" *ngIf="phone_number.errors && f.submitted">
           <div *ngIf="phone_number.errors.required">Phone number is required</div>
           <div *ngIf="phone_number.errors.minlength">
-            Phone number must be at least 6 characters
+            Phone number must be at least 9 characters
           </div>
         </div>
       </div>
