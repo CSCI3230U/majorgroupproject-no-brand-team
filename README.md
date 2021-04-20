@@ -95,31 +95,48 @@ For our independent study we decided to explore and integrate JWT (JSON Web Toke
 
 https://docs.google.com/presentation/d/1-DSLPeA1waVdRY2TWw0uvydcXP6MTRHXIz-_HWTuqc4/edit?usp=sharing
 
-## Installation
-# Angular
+# Installation
+## Angular
 For the Angular installation you can use the latest version of node. First navigate to the /angular/fitnessApp/ directory, then install the Angular CLI and devkit.
+
 npm i
 npm install @angular/cli
+
 npm install –save-dev @angular-devkit/build-angular
+
 Then run local with
+
 ng serve –open
+
 The Angular app will build and start up automatically in your browser, if it doesn’t autoload you can navigate to it at localhost:4200
+
 NOTE! The initial build time can take a couple of minutes, please be patient
 
-# NodeJS Express
+## NodeJS Express
 Please note, the NodeJS instance is available on a cloud service at http://enigmatic-cove-71059.herokuapp.com (Credentials, git history, and access available upon request)
+
 NOTE! The Heroku service is free and is not active 24/7. After your first initial request, give the service a few minutes to boot up. 
+
 For local installation, again the latest Node version is adequate. Navigate from the root directory to /node_server/ then install with npm and npx
+
 npm i
+
 npm install npx
+
 At this step, please install PostgreSQL locally and create a DB with match credentials to these 
+
     "username": "noBrandAdmin",
     "password": "password",
     "database": "noBrandDB",
     "host": "127.0.0.1",
     "dialect": "postgres"
+
 Then we run our migrations with 
+
 npx sequelize-cli db:migrate
+
 and run
+
 npm run start
+
 The server will be accessible on localhost:3000
