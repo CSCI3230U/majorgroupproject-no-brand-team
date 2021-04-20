@@ -41,13 +41,31 @@ export class AuthenticateService {
   bloodpressureGet(): Observable<any> {
     return this.http.get(AUTH_API + 'bloodpressure/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
   }
-  
+
+  bloodpressurePost(pressure: string): Observable<any> {
+    return this.http.post(AUTH_API + 'bloodpressure', {
+      pressure,
+    }, {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+
   calorieGet(): Observable<any> {
     return this.http.get(AUTH_API + 'calories/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
   }
 
+  caloriePost(measure: string): Observable<any> {
+    return this.http.post(AUTH_API + 'calories', {
+      measure,
+    }, {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+
   heartrateGet(): Observable<any> {
     return this.http.get(AUTH_API + 'heartrate/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+
+  heartRatePost(rate: string): Observable<any> {
+    return this.http.post(AUTH_API + 'heartrate', {
+      rate,
+    }, {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
   }
 
   routeGet(): Observable<any> {
@@ -57,6 +75,13 @@ export class AuthenticateService {
   weightGet(): Observable<any> {
     return this.http.get(AUTH_API + 'weight/sorted', {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
   }
+
+  weightPost(weight: string): Observable<any> {
+    return this.http.post(AUTH_API + 'weight', {
+      weight,
+    }, {headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization' : `Bearer ${this.tokenStorage.getToken()}`})});
+  }
+
 
 
 }

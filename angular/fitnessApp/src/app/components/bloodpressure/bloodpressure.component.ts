@@ -14,6 +14,12 @@ declare var $: any;
 })
 export class BloodpressureComponent implements OnInit {
   graphData: any = {};
+  isSubmitted = false;
+  isSubmitFailed = false;
+  errorMessage = '';
+  form: any = {
+    pressure: null
+  };
 
   constructor(private authService: AuthenticateService) { }
 
@@ -23,13 +29,26 @@ export class BloodpressureComponent implements OnInit {
         this.graphData = data.data;
 
         this.buildLine();
-
-
-      ($(document).ready(function() {
-
-      }))
       }
     )
+  }
+
+  onSubmit(): void {
+    const { pressure } = this.form;
+    this.authService.bloodpressurePost(pressure).subscribe(
+      data => {
+        this.isSubmitted = true;
+        this.reloadPage();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSubmitFailed = true;
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
     private buildLine(){
