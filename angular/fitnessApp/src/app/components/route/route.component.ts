@@ -28,7 +28,6 @@ export class RouteComponent implements OnInit {
       setTimeout(() => {
         var map:any;
         var start:any;
-        var startInfo:any;
         var end:any;
     
         var routes:any = this.routeData;
@@ -38,68 +37,22 @@ export class RouteComponent implements OnInit {
             makeRouteBox(name, mode);
         }
     
+        // should be fetched from back end
+        var home = { lat: 43.89, lng: -78.86 };
         var weight = 150;
-        var home = 'Oshawa';
-
-        $.ajax({
-            url: 'https://enigmatic-cove-71059.herokuapp.com/v1/user/',
-            type: 'GET',
-            headers: {"Authorization": 'Bearer ' + token},
-            success: function(res:any) {
-                if (res.result.address != null && res.result.address != '') {
-                    home = res.result.address;
-                }
+    
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: home,
+            zoom: 15,
+            disableDefaultUI: true,
+            mapTypeControlOptions: {
+                mapTypeIds: ['style'],
             },
         });
-
-        let geo = new google.maps.Geocoder();
-        geo.geocode({address: home}, function(response:any) {
-            home = response[0].geometry.location;
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: home,
-                zoom: 15,
-                disableDefaultUI: true,
-                mapTypeControlOptions: {
-                    mapTypeIds: ['style'],
-                },
-            });
-            start = new google.maps.Marker({
-                position: home,
-                map: map,
-                draggable: true,
-                crossOnDrag: true,
-            });
-            startInfo = new google.maps.InfoWindow({
-                content: '<h1><b>Start</b></h1><br>' +
-                        '<p>This is the start of the route, it defaults to your home. ' +
-                        'Click a location on the map to set your destination. After doing so ' +
-                        'you can drag the path and markers to alter the route.</p>'
-            });
-            startInfo.open(map, start);
-        });
-
-        end = new google.maps.Marker({
-            position: null,
-            map: map,
-            draggable: true,
-            crossOnDrag: true,
-        });
-        var endInfo:any;
-        endInfo = new google.maps.InfoWindow({
-            content: '<h1><b>Destination<b></h1>',
-        })
-
-        const paths = new google.maps.BicyclingLayer();
-        paths.setMap(map);
-    
-        var dirService = new google.maps.DirectionsService();
-        var dirRender = new google.maps.DirectionsRenderer({
-            draggable: true,
-            map: map,
-            markerOptions: {
-                visible: false,
-            }
-        });
+        /*$.getJSON('map.json', function(data: any) {
+            map.mapTypes.set('style', new google.maps.StyledMapType(data));
+            map.setMapTypeId('style');
+        });*/
 
         var mapData = `[
             {
@@ -319,6 +272,43 @@ export class RouteComponent implements OnInit {
 
         map.mapTypes.set('style', new google.maps.StyledMapType(JSON.parse(mapData)));
         map.setMapTypeId('style');
+    
+        start = new google.maps.Marker({
+            position: home,
+            map: map,
+            draggable: true,
+            crossOnDrag: true,
+        });
+        var startInfo = new google.maps.InfoWindow({
+            content: '<h1><b>Start</b></h1><br>' +
+                    '<p>This is the start of the route, it defaults to your home. ' +
+                    'Click a location on the map to set your destination. After doing so ' +
+                    'you can drag the path and markers to alter the route.</p>'
+        });
+        startInfo.open(map, start);
+    
+        end = new google.maps.Marker({
+            position: null,
+            map: map,
+            draggable: true,
+            crossOnDrag: true,
+        });
+        var endInfo:any;
+        endInfo = new google.maps.InfoWindow({
+            content: '<h1><b>Destination<b></h1>',
+        })
+    
+        const paths = new google.maps.BicyclingLayer();
+        paths.setMap(map);
+    
+        var dirService = new google.maps.DirectionsService();
+        var dirRender = new google.maps.DirectionsRenderer({
+            draggable: true,
+            map: map,
+            markerOptions: {
+                visible: false,
+            }
+        });
     
         var setEnd:any;
         makeEndListener();
