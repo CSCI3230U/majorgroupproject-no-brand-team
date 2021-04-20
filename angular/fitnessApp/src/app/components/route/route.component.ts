@@ -122,7 +122,7 @@ export class RouteComponent implements OnInit {
             updateInfo(dirRender.getDirections());
         });
     
-        $('#save').click(function() {
+        $('#save').click(async function() {
             if (!dirRender.getDirections()) { return; }
             
             let mode = $('input[name="mode"]:checked').attr('id');
@@ -137,10 +137,12 @@ export class RouteComponent implements OnInit {
             if (name == null || name == '') { return; }
     
             let route = getRouteObj(name, mode);
+            console.log(route)
             $.ajax({
                 type: 'POST',
+                contentType: "application/json",
                 url: 'https://enigmatic-cove-71059.herokuapp.com/v1/route',
-                headers: {"Authorization": 'Bearer ' + token},
+                headers: {"Authorization": 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4OTMyNTE3LCJleHAiOjE2MTkwMTg5MTd9.ds-rOFpI4rnTaS4cGU64F4VPyqftF9Grka88WICqdno'},
                 data: JSON.stringify(route),
                 success: function() {
                     let found = false;
@@ -164,7 +166,7 @@ export class RouteComponent implements OnInit {
                         } else {
                             makeRouteBox(name, mode);
                             $.ajax({
-                                url: 'https://enigmatic-cove-71059.herokuapp.com/v1/route/' + name,
+                                url: 'https://enigmatic-cove-71059.herokuapp.com/v1/route/',
                                 type: 'GET',
                                 headers: {"Authorization": 'Bearer ' + token},
                                 success: function(res:any) {
@@ -173,6 +175,9 @@ export class RouteComponent implements OnInit {
                             });
                         }
                     }
+                },
+                error: function(err: string) {
+                    console.log(err)
                 }
             });
         });
