@@ -1,3 +1,5 @@
+
+# A COMPILED PDF WITH ALL SUBMISSION INFORMATION HAS BEEN SUBMITTED TO THIS REPO
 # Major Group Project
 
 Before you submit your project, modify the following table to include everyone's full name and GitHub usernames:
@@ -7,7 +9,7 @@ Before you submit your project, modify the following table to include everyone's
 | Ronald Sin                 | ronaldsin          |
 | Jayson Sandhu              | jayson-s           |
 | Alexander Minz             | ajminz             |
-| Nathaniel Armogan | devMRLT |
+| Nathaniel Armogan          | devMRLT |
 | Matthew Witvoet            | mwiiwm             |
 
 _**Note:** You can delete the unused rows from the table._
@@ -86,3 +88,55 @@ When the due date approaches, you will commit and push your code to your GitHub 
 _**Note:**  This `README.md` file should contain any necessary instructions for getting started (e.g. admin accounts, how to import the database), along with the names and GitHub usernames of the group members._
 
 _**Note:**  If any files or changes are missing from the repository at the time of submission, that work will not be counted toward your project mark.  Take care to ensure you follow a regular commit policy (at least once for each day you’ve worked on the project).  Not only will this allow the instructor to follow your progress, but it will also ensure that you do not lose any work and will eliminate most merge-related issues when working on the project separately.  It is recommended that you verify that the correct code is on GitHub by doing a fresh clone of the repository and testing it out._
+
+## Independent Study
+
+For our independent study we decided to explore and integrate JWT (JSON Web Tokens) into our application for server authentication and database querying. We also decided to deploy our NodeJS server on a cloud-based service, in this case we decided on Heroku due to it’s easy-to-use nature and it’s free option.
+
+https://docs.google.com/presentation/d/1-DSLPeA1waVdRY2TWw0uvydcXP6MTRHXIz-_HWTuqc4/edit?usp=sharing
+
+# Installation
+## Angular
+For the Angular installation you can use the latest version of node. First navigate to the /angular/fitnessApp/ directory, then install the Angular CLI and devkit.
+
+npm i
+npm install @angular/cli
+
+npm install –save-dev @angular-devkit/build-angular
+
+Then run local with
+
+ng serve –open
+
+The Angular app will build and start up automatically in your browser, if it doesn’t autoload you can navigate to it at localhost:4200
+
+NOTE! The initial build time can take a couple of minutes, please be patient
+
+## NodeJS Express
+Please note, the NodeJS instance is available on a cloud service at http://enigmatic-cove-71059.herokuapp.com (Credentials, git history, and access available upon request)
+
+NOTE! The Heroku service is free and is not active 24/7. After your first initial request, give the service a few minutes to boot up. 
+
+For local installation, again the latest Node version is adequate. Navigate from the root directory to /node_server/ then install with npm and npx
+
+npm i
+
+npm install npx
+
+At this step, please install PostgreSQL locally and create a DB with match credentials to these 
+
+    "username": "noBrandAdmin",
+    "password": "password",
+    "database": "noBrandDB",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+
+Then we run our migrations with 
+
+npx sequelize-cli db:migrate
+
+and run
+
+npm run start
+
+The server will be accessible on localhost:3000
