@@ -14,6 +14,15 @@ export class RouteComponent implements OnInit {
 
   constructor(private authService: AuthenticateService, private tokenStorage: TokenStorageService) { }
 
+  save(): void{
+
+  }
+  newRoute(): void{
+
+  }
+  delete(): void{
+
+  }
   ngOnInit(): void {
     
     this.authService.routeGet().subscribe(
