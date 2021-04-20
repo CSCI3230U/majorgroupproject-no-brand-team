@@ -14,12 +14,6 @@ declare var $: any;
 })
 export class BloodpressureComponent implements OnInit {
   graphData: any = {};
-  private margin = {top: 20, right: 20, bottom: 30, left: 50};
-  private x: any;
-  private y: any;
-  private svg: any;
-  private line: any;
-
 
   constructor(private authService: AuthenticateService) { }
 
@@ -27,53 +21,129 @@ export class BloodpressureComponent implements OnInit {
     this.authService.bloodpressureGet().subscribe(
       data => {
         this.graphData = data.data;
-        // console.log(data)
-        console.log(this.graphData)
-        
-        this.buildSvg();
-        this.addXandYAxis();
-        this.drawLineAndPath();
 
-        
+        this.buildLine();
+
+
       ($(document).ready(function() {
-        alert('jQuery')
+
       }))
       }
     )
   }
 
-  private buildSvg() {
-    this.svg = d3.select('svg') // svg element from html
-      .append('g')   // appends 'g' element for graph design
-      .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
-  }
+    private buildLine(){
 
-  private addXandYAxis() {
-    // range of data configuring
-    this.x = d3Scale.scaleTime().range([0, 50]);
-    this.y = d3Scale.scaleLinear().range([55, 0]);
-    this.x.domain(d3Array.extent(this.graphData.measure));
-    this.y.domain(d3Array.extent(this.graphData.time));
+        var high = this.graphData.measure[0];
 
-    // Configure the X Axis
-    this.svg.append('g')
-        .attr('transform', 'translate(0,' + 55 + ')')
-        .call(d3Axis.axisBottom(this.x));
-    // Configure the Y Axis
-    this.svg.append('g')
-        .attr('class', 'axis axis--y')
-        .call(d3Axis.axisLeft(this.y));
-  }
+        for(var i = 0; i < this.graphData.measure.length; i++){
+            if(this.graphData.measure[i] > high){
+                high = this.graphData.measure[i];
+            }
+        }
 
-  private drawLineAndPath() {
-    this.line = d3Shape.line()
-        .x( (d: any) => this.x(d.measure) )
-        .y( (d: any) => this.y(d.time) );
-    // Configuring line path
-    this.svg.append('path')
-        .datum(this.graphData)
-        .attr('class', 'line')
-        .attr('d', this.line);
-  }
+        var localData: any = [];
 
+        for(var i = 0; i < this.graphData.time.length; i++){
+            localData[i] = new Object;
+            localData[i].time = this.graphData.time[i];
+            localData[i].measure = this.graphData.measure[i];
+        }
+
+
+        const margin = 50;
+        const width = 800;
+        const height = 500;
+        const chartWidth = width - 2 * margin;
+        const chartHeight = height - 2 * margin;
+
+        const xScale: any = d3.scaleBand()
+                            .domain(localData.map((data: any) => data.time))
+                            .range([0, chartWidth]);
+
+        // const xScale = d3.scaleBand()
+        //     .domain(dom)
+        //     .range([0, chartWidth]);
+
+        const yScale: any = d3.scaleLinear()
+                            .domain([0, high])
+                            .range([chartHeight, 0]);
+
+        // append the svg object to the body of the page
+        let svg: any = d3.select('#chart')
+                        .append('svg')
+                            .attr('width', width)
+                            .attr('height', height);
+        // title
+        svg.append('text')
+                .attr('x', width / 2)
+                .attr('y', margin - 20)
+                .attr('text-anchor', 'middle')
+                .style('fill', 'white')
+                .text("Blood Pressure vs Time");
+
+        svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("x", -(margin + 140))
+                .attr("y", 6)
+                .attr("dy", ".75em")
+                .style('fill', 'white')
+                .style("text-anchor", "end")
+                .text("Pressure");
+
+        svg.append("text")
+                .attr("class", "x lab")
+                .attr("x", width/2)
+                .attr("y", height - 10)
+                .style('fill', 'white')
+                .style("text-anchor", "middle")
+                .text("Time");
+
+        // create a group (g) for the bars
+        let g: any = svg.append('g')
+            .attr('transform', `translate(${margin}, ${margin})`);
+
+        // y-axis
+        let yAxis: any = g.append('g')
+            .attr("stroke","white")
+            .attr("stroke-width","0.5")
+            .call(d3.axisLeft(yScale));
+
+        // x-axis
+        let xAxis: any = g.append('g')
+            .attr('transform', `translate(0, ${chartHeight})`)
+            .attr("stroke","white")
+            .attr("stroke-width","0.5")
+            .call(d3.axisBottom(xScale));
+
+
+        xAxis.select(".domain")
+            .attr("stroke","white")
+            .attr("stroke-width","0.5");
+
+        yAxis.select(".domain")
+            .attr("stroke","white")
+            .attr("stroke-width","0.5");
+
+        g.append("path")
+          .datum(localData)
+          .attr("fill", "none")
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", 1.5)
+          .attr("d", d3.line()
+            .x((data: any) => xScale(data.time) + xScale.bandwidth() / 2)
+            .y((data: any) => yScale(data.measure))
+            )
+
+        g.append("g")
+          .selectAll("dot")
+          .data(localData)
+          .enter()
+          .append("circle")
+            .attr("cx", (data: any) => xScale(data.time) + xScale.bandwidth() / 2)
+            .attr("cy", (data: any) => yScale(data.measure))
+            .attr("r", 5)
+            .attr("fill", "#69b3a2")
+
+    }
 }
