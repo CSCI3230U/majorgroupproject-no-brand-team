@@ -8,9 +8,16 @@ h1,
   line-height: 1.15em;
 }
 
+h4 {
+    font-size: 1.125rem;
+    line-height: 1.5em;
+  }
+
 p {
   font-size: 20px;
   margin: 0 0 10px;
+  padding: 5px 0;
+  text-align: center;
 }
 
 .profile-page .page-header {
@@ -64,6 +71,10 @@ p {
     box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 
+img.rounded {
+    border-radius: 6px!important;
+}
+
 .rounded-circle {
     border-radius: 50%!important;
 }
@@ -74,7 +85,7 @@ p {
     min-height: 32px;
     color: #2e3a4b;
     font-weight: 700;
-    font-family: "Roboto Slab","Times New Roman",serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .profile-page .description {
@@ -88,69 +99,15 @@ p {
   margin-top: -80px;
 }
 
-  /* buttons */
-.btn {
-    position: relative;
-    padding: 12px 30px;
-    margin: .3125rem 1px;
-    font-size: .75rem;
-    font-weight: 400;
-    line-height: 1.428571;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0;
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    border-radius: .2rem;
-    outline: 0;
-    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
-    will-change: box-shadow,transform;
+.profile-page .stats ul>li b {
+    font-size: 1.1em;
+    color: #3c4858;
 }
 
-.btn.btn-primary {
-    color: #fff;
-    background-color: #9c27b0;
-    border-color: #9c27b0;
-    box-shadow: 0 2px 2px 0 rgba(156,39,176,.14), 0 3px 1px -2px rgba(156,39,176,.2), 0 1px 5px 0 rgba(156,39,176,.12);
-}
+.profile-page .stats ul>li {
+    padding: 5px 0;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #3c4858;
 
-.btn.btn-fab.btn-round, .btn.btn-just-icon.btn-round{
-  border-radius: 50%;
 }
-
-.btn.btn-fab, .btn.btn-just-icon {
-    font-size: 24px;
-    height: 41px;
-    min-width: 41px;
-    width: 41px;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-    line-height: 41px;
-}
-
-.btn.btn-fab .fa, .btn.btn-fab .material-icons, .btn.btn-just-icon .fa, .btn.btn-just-icon .material-icons {
-    margin-top: 0;
-    position: absolute;
-    width: 100%;
-    transform: none;
-    left: 0;
-    top: 0;
-    height: 100%;
-    line-height: 41px;
-    font-size: 20px;
-    }
-
-.btn.btn-primary:focus{
-    color: #fff;
-    background-color: #9124a3;
-    border-color: #701c7e;
-}
-
-.btn.btn-primary:hover {
-    color: #fff;
-    background-color: #9124a3;
-    box-shadow: 0 14px 26px -12px rgba(156,39,176,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(156,39,176,.2);
-}
-  
