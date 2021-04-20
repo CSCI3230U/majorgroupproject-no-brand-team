@@ -45,6 +45,12 @@ router.post('/calories', async (req, res) => {
     res.json({ message: 'successfully created Calories', result })
 })
 
+router.delete('/calories/:id', async (req, res) => {
+    const result = await Calories.destroy({ where: { id: req.params.id, user_id: req.user.id } })
+
+    res.json({ message: 'successfully delete Calorie', result })
+})
+
 router.get('/calories/sorted', async (req, res) => {
     const result = await Calories.findAll({ where: { user_id: req.user.id } })
 
