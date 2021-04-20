@@ -23,12 +23,23 @@ router.get('/bloodpressure/sorted', async (req, res) => {
 })
 
 router.post('/bloodpressure', async (req, res) => {
-    const result = await BloodPressure.create({
-        pressure: req.body.pressure,
-        user_id: req.user.id
-    });
+    if (req.body.pressure == null) {
+        res.status(400).json({ message: 'error creating bloodpressure' })
+    } else {
+        const result = await BloodPressure.create({
+            pressure: req.body.pressure,
+            user_id: req.user.id
+        });
 
-    res.json({ message: 'successfully created BloodPressure', result })
+        res.json({ message: 'successfully created BloodPressure', result })
+
+    }
+})
+
+router.delete('/bloodpressure/:id', async (req, res) => {
+    const result = await BloodPressure.destroy({ where: { id: req.params.id, user_id: req.user.id } })
+
+    res.json({ message: 'successfully delete BloodPressure', result })
 })
 
 router.get('/calories', async (req, res) => {
@@ -37,12 +48,15 @@ router.get('/calories', async (req, res) => {
 })
 
 router.post('/calories', async (req, res) => {
-    const result = await Calories.create({
-        calories: req.body.calories,
-        user_id: req.user.id
-    });
-
-    res.json({ message: 'successfully created Calories', result })
+    if (req.body.calories == null) {
+        res.status(400).json({ message: 'error creating calories' })
+    } else {
+        const result = await Calories.create({
+            calories: req.body.calories,
+            user_id: req.user.id
+        });
+        res.json({ message: 'successfully created Calories', result })
+    }
 })
 
 router.delete('/calories/:id', async (req, res) => {
@@ -85,12 +99,18 @@ router.get('/heartrate/sorted', async (req, res) => {
 })
 
 router.post('/heartrate', async (req, res) => {
-    const result = await HeartRate.create({
-        rate: req.body.rate,
-        user_id: req.user.id
-    });
+    if (req.body.rate == null) {
+        res.status(400).json({ message: 'error creating heart rate' })
+    } else {
 
-    res.json({ message: 'successfully created HeartRate', result })
+        const result = await HeartRate.create({
+            rate: req.body.rate,
+            user_id: req.user.id
+        });
+
+        res.json({ message: 'successfully created HeartRate', result })
+
+    }
 })
 
 router.get('/latlong', async (req, res) => {
@@ -135,7 +155,7 @@ router.post('/route', async (req, res) => {
         req.body.waypoints.forEach(async function (item, index) {
             waypoint = await LatLong.create({ lat: item.lat, long: item.lng, route_id: result.id })
         })
-        res.json({ message: 'successfully created Route', result})
+        res.json({ message: 'successfully created Route', result })
     }
 
 })
@@ -171,12 +191,17 @@ router.get('/weight/sorted', async (req, res) => {
 })
 
 router.post('/weight', async (req, res) => {
-    const result = await Weight.create({
-        weight: req.body.weight,
-        user_id: req.user.id
-    });
+    if (req.body.weight == null) {
+        res.status(400).json({ message: 'error creating weight ' })
+    } else {
+        const result = await Weight.create({
+            weight: req.body.weight,
+            user_id: req.user.id
+        });
 
-    res.json({ message: 'successfully created Weight', result })
+        res.json({ message: 'successfully created Weight', result })
+
+    }
 })
 
 router.delete('/weight/:id', async (req, res) => {
