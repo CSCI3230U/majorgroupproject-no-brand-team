@@ -157,7 +157,7 @@ router.get('/weight', async (req, res) => {
 })
 
 router.get('/weight/sorted', async (req, res) => {
-    const result = await HeartRate.findAll({ where: { user_id: req.user.id } })
+    const result = await Weight.findAll({ where: { user_id: req.user.id } })
 
     weight = [];
     time = [];
@@ -177,6 +177,12 @@ router.post('/weight', async (req, res) => {
     });
 
     res.json({ message: 'successfully created Weight', result })
+})
+
+router.delete('/weight/:id', async (req, res) => {
+    const result = await Weight.destroy({ where: { id: req.params.id, user_id: req.user.id } })
+
+    res.json({ message: 'successfully delete Weight', result })
 })
 
 module.exports = router;

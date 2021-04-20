@@ -13,6 +13,12 @@ import * as d3Axis from 'd3';
 })
 export class HeartrateComponent implements OnInit {
     graphData: any = {}
+    isSubmitted = false;
+    isSubmitFailed = false;
+    errorMessage = '';
+    form: any = {
+      heartrate: null
+    };
     constructor(private authService: AuthenticateService) { }
 
     ngOnInit(): void {
@@ -25,6 +31,24 @@ export class HeartrateComponent implements OnInit {
         }
       )
 
+    }
+
+    onSubmit(): void {
+      const { heartrate } = this.form;
+      this.authService.heartRatePost(heartrate).subscribe(
+        data => {
+          this.isSubmitted = true;
+          this.reloadPage();
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isSubmitFailed = true;
+        }
+      );
+    }
+  
+    reloadPage(): void {
+      window.location.reload();
     }
 
     private buildLine(){

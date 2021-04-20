@@ -13,6 +13,12 @@ import * as d3Axis from 'd3';
 })
 export class CaloriesComponent implements OnInit {
   graphData: any = {}
+  isSubmitted = false;
+  isSubmitFailed = false;
+  errorMessage = '';
+  form: any = {
+    calories: null
+  };
 
 
   constructor(private authService: AuthenticateService) { }
@@ -27,6 +33,24 @@ export class CaloriesComponent implements OnInit {
       }
     )
 
+  }
+
+  onSubmit(): void {
+    const { calories } = this.form;
+    this.authService.caloriePost(calories).subscribe(
+      data => {
+        this.isSubmitted = true;
+        this.reloadPage();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSubmitFailed = true;
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
     private buildLine(){
