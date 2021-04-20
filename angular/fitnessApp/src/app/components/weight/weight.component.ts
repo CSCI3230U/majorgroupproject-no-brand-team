@@ -63,6 +63,8 @@ export class WeightComponent implements OnInit {
       }
     }
 
+    high = Math.ceil(high + high * 0.1);
+
     var localData: any = [];
 
     for (var i = 0; i < this.graphData.time.length; i++) {
