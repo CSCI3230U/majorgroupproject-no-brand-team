@@ -79,7 +79,7 @@ router.get('/heartrate/sorted', async (req, res) => {
 })
 
 router.post('/heartrate', async (req, res) => {
-    const result = await Calories.create({
+    const result = await HeartRate.create({
         rate: req.body.rate,
         user_id: req.user.id
     });
@@ -103,18 +103,6 @@ router.get('/route/:name', async (req, res) => {
 })
 
 router.post('/route', async (req, res) => {
-    // const result = await Route.create({
-    //     name: req.body.name,
-    //     mode: req.body.mode,
-    //     speed: req.body.speed,
-    //     user_id: req.user.id
-    // });
-
-    // req.body.waypoints.forEach(async function (item, index){
-    //     waypoint = await LatLong.create({lat: item.lat, long: item.lng, route_id: result.id})
-    // })
-    // res.json({ message: 'successfully created Route', result})
-
     const model = await Route.findOne({ where: { name: req.body.name, user_id: req.user.id } })
 
     if (!model) {
@@ -173,7 +161,7 @@ router.get('/weight/sorted', async (req, res) => {
         time.push(item.get({ plain: true }).createdAt)
     })
 
-    res.json({ message: 'success', data: { weightrate, time } })
+    res.json({ message: 'success', data: { weight, time } })
 })
 
 router.post('/weight', async (req, res) => {

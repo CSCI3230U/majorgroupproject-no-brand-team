@@ -49,7 +49,7 @@ export class RouteComponent implements OnInit {
                 mapTypeIds: ['style'],
             },
         });
-        $.getJSON('map.JSON', function(data: any) {
+        $.getJSON('assets/map.json', function(data: any) {
             map.mapTypes.set('style', new google.maps.StyledMapType(data));
             map.setMapTypeId('style');
         });
