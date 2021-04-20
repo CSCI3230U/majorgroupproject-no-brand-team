@@ -130,6 +130,18 @@ html, body {
   float: right;
 }
 
+#new {
+  margin-left: 0.5rem;
+}
+
+#bicycle {
+  margin-left: 0.5rem;
+}
+
+#speed {
+  margin-right: 0.5rem;
+}
+
 /* MOBILE */
 
 @media (max-width: 600px) {
