@@ -21,6 +21,7 @@ export class BloodpressureComponent implements OnInit {
     this.authService.bloodpressureGet().subscribe(
       data => {
         this.graphData = data.data;
+        console.log(this.graphData);
 
         this.buildLine();
 
@@ -41,6 +42,8 @@ export class BloodpressureComponent implements OnInit {
                 high = this.graphData.measure[i];
             }
         }
+
+        high = Math.ceil(high + high * 0.1);
 
         var localData: any = [];
 
